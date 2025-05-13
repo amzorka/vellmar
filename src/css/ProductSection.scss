@@ -1,0 +1,187 @@
+@font-face {
+  font-weight: 500;
+  font-family: "Inter";
+  src: url("../fonts/Inter_18pt-Medium.ttf");
+}
+
+@font-face {
+  font-weight: 300;
+  font-family: "Inter";
+  src: url("../fonts/Inter_18pt-Light.ttf");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "Inter";
+  src: url("../fonts/Inter_18pt-Bold.ttf");
+}
+
+.products-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f6f6;
+  box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.15);
+}
+
+.product-section {
+  background: none;
+}
+
+.section-container {
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.section-header {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-family: "Inter";
+  font-weight: bold;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 50px;
+
+  .title-arrow {
+    width: 14px;
+    height: 22px;
+  }
+}
+
+.category-link {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #333; // или другой цвет при наведении
+  }
+}
+
+.product-image-container {
+  width: 210px;
+  height: 210px;
+}
+
+.product-image {
+  width: 210px;
+  height: 210px;
+}
+
+.products-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.product-card {
+  flex: 0 0 200px;
+  height: 434px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.product-sku {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 12px;
+  color: #767676;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 500;
+  margin-bottom: 0;
+  text-decoration: none;
+  color: #000000;
+}
+
+.product-description {
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.product-dimensions {
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.product-price {
+  font-family: "Inter";
+  font-size: 16;
+  font-weight: 700;
+  position: absolute;
+  bottom: 63px;
+  color: #000000;
+}
+
+.open-catalog-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px; // отступ сверху от последней подсекции
+  margin-bottom: 60px; // отступ снизу до конца контейнера
+}
+
+.open-catalog-button {
+  width: 305px;
+  height: 62px;
+  background-color: #e67549;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 500;
+  text-align: center;
+  line-height: 62px; // чтобы текст выровнялся по центру по вертикали
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: darken(#e67549, 10%);
+  }
+}
+
+.product-choose-button {
+  background-color: #e67549;
+  color: #ffffff;
+  width: 210px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  position: absolute;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#e67549, 10%);
+  }
+}

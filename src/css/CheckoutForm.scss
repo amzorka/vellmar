@@ -1,0 +1,124 @@
+.checkout-section {
+  margin-top: 50px;
+  margin-left: 80px;
+  margin-bottom: 100px;
+}
+
+.checkout-title {
+  font-size: 24px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.checkout-subtitle {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.checkout-type-switch {
+  display: flex;
+  width: 408px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.type-btn {
+  flex: 1;
+  padding: 12px 33px;
+  border: none;
+  background-color: #f3f3f3;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 400;
+  cursor: pointer;
+  color: #767676;
+  transition: background-color 0.3s ease;
+}
+
+.type-btn.active {
+  background-color: #e67549; // оранжевый
+  color: white;
+}
+
+.checkout-form {
+  display: flex;
+  gap: 150px;
+}
+
+.form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form-column input {
+  width: 500px;
+  height: 40px;
+  padding-left: 15px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+  border-radius: 10px;
+  border: none;
+  background-color: #f3f3f3;
+}
+
+.form-column input::placeholder {
+  color: #000000;
+}
+
+.form-column input::-webkit-input-placeholder {
+  color: #000000;
+}
+
+.form-column input:-moz-placeholder {
+  color: #000000;
+}
+
+.form-column input::-moz-placeholder {
+  color: #000000;
+}
+
+.form-column input:-ms-input-placeholder {
+  color: #000000;
+}
+
+.checkout-bottom {
+  margin-top: 30px;
+}
+
+.checkout-note {
+  width: 350px;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+  margin-bottom: 40px;
+}
+
+.checkout-link {
+  text-decoration: underline;
+  color: #e67549; /* оранжевый фирменный */
+}
+
+.checkout-submit {
+  width: 370px;
+  height: 50px;
+  background-color: #e67549; /* оранжевый */
+  color: white;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-submit:hover {
+  background-color: #b56133;
+}

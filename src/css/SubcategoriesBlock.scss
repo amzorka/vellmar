@@ -1,0 +1,39 @@
+.subcategories-block {
+  width: calc(100% - 160px);
+  margin-top: 30px;
+  margin-left: 80px;
+  margin-right: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 30px; // 20px между строками, 30px между карточками по горизонтали
+}
+
+.subcategory-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  height: 48px;
+  padding: 0 40px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+}
+
+.subcategory-divider {
+  margin-top: 40px;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(230, 117, 73, 0.5); // #E67549 с прозрачностью 50%
+}

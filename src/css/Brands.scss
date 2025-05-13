@@ -1,0 +1,66 @@
+.alphabet-nav {
+  margin-left: 80px;
+  margin-right: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 50px;
+  font-size: 24px;
+  font-family: "Inter";
+  font-weight: 700;
+  letter-spacing: 25%;
+  line-height: 125%;
+
+  a {
+    color: #d87c4a;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .disabled-letter {
+    color: #ccc;
+  }
+}
+
+.brands-list {
+  margin: 50px 80px 100px 80px;
+}
+
+.letter-group {
+  margin-bottom: 50px;
+  h2 {
+    font-family: "Inter";
+    font-style: 24px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+
+.brand-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.brand-card {
+  height: 48px;
+  padding: 0 20px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-size: 18px;
+  font-family: "Inter";
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+}

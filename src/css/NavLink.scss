@@ -1,0 +1,14 @@
+.nav-link {
+    color: #0d0d0d; // Черный цвет для неактивных ссылок
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: #555; // Серый при наведении
+    }
+  
+    &.active {
+      color: #767676; // Серый цвет для активной ссылки
+    }
+  }

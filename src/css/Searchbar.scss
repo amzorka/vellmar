@@ -1,0 +1,52 @@
+@font-face {
+  font-weight: 500;
+  font-family: "Inter";
+  src: url("../fonts/Inter_18pt-Medium.ttf");
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #e67549;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 40px;
+}
+
+.search-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  background-color: #f3f3f3;
+  height: 100%;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 400;
+  color: #767676;
+  width: 463px;
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.search-wrapper .search-btn {
+  background: transparent;
+  border: none;
+  padding: 0 13px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: auto;
+
+  svg {
+    stroke: white;
+    fill: none;
+  }
+}

@@ -1,0 +1,21 @@
+.request-button {
+  background-color: #e67549;
+  color: #ffffff;
+  width: 210px;
+  height: 30px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  position: absolute;
+  bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken(#e67549, 10%);
+  }
+}

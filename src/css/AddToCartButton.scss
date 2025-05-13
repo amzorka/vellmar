@@ -1,0 +1,85 @@
+@font-face {
+  font-weight: 500;
+  font-family: "Inter";
+  src: url("../fonts/Inter_18pt-Medium.ttf");
+}
+
+@font-face {
+  font-weight: 700;
+  font-family: "Inter";
+  src: url("../fonts/Inter_18pt-Bold.ttf");
+}
+
+.add-to-cart-button {
+  color: #767676;
+  width: 210px;
+  height: 30px;
+  display: flex;
+  font-size: 16px;
+  font-family: "Inter";
+  overflow: hidden;
+  position: absolute;
+  bottom: 18px;
+
+  .quantity-controls {
+    width: 50%;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid #767676;
+    border-radius: 10px 0 0 10px;
+    padding: 0 5px;
+
+    .control-button {
+      font-family: "Inter";
+      font-weight: 500;
+      color: #767676;
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 0;
+      width: 20px;
+      height: 100%;
+      text-align: center;
+    }
+
+    .quantity,
+    .quantity-input {
+      font-family: "Inter";
+      font-weight: 700;
+      width: 30px;
+      text-align: center;
+      font-size: 16px;
+      border: none;
+      background: transparent;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .quantity-input {
+      cursor: text;
+    }
+  }
+
+  .add-to-cart {
+    width: 50%;
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 14px;
+    background-color: #e67549;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 10px 10px 0;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: darken(#e67549, 10%);
+    }
+  }
+}

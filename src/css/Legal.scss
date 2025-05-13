@@ -1,0 +1,46 @@
+.legal-content {
+  margin-top: 40px;
+  width: calc(100% - 160px);
+  margin: 0 auto;
+  font-family: "Inter";
+  line-height: 150%;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 15px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  p,
+  li {
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  li {
+    margin: 5px 0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  section {
+    margin-bottom: 20px;
+  }
+}
+
+.page-heading {
+  margin-left: 80px;
+  font-family: "Inter";
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}

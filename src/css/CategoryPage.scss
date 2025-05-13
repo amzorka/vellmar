@@ -1,0 +1,53 @@
+.category-title {
+  font-family: "Inter";
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-left: 80px;
+}
+
+.products-section {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px 20px; // 30px по вертикали, 20px по горизонтали
+  margin: 60px 80px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+/* --- Skeleton Loader --- */
+.product-skeleton-card {
+  width: 220px;
+  height: 370px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #eeeeee 25%, #dddddd 50%, #eeeeee 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+  margin: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+/* --- Анимация появления карточек --- */
+.products-section > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
