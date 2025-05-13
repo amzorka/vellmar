@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/PartnersSection.scss";
 
-import logo1 from "../images/partners/Delta_logo.svg.png";
+import logo1 from "../images/partners/photo_2025-05-13 3.50.43 PM.jpeg";
 import logo2 from "../images/partners/logo-3.png";
 import logo3 from "../images/partners/logo-3-2.png";
 import logo4 from "../images/partners/logo-2.png";

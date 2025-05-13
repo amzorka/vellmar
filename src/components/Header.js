@@ -8,11 +8,11 @@ import mail from "../images/mail.png";
 import phone from "../images/phone.png";
 import NavLink from "./NavLink";
 import { Link } from "react-router-dom";
-import { CartContext } from "../contexts/CartContext"; // если у тебя уже есть контекст
+import { CartContext } from "../contexts/CartContext";
 
 const Header = () => {
-  const { cartItems } = useContext(CartContext); // получаем товары из контекста корзины
-  const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0); // общее количество
+  const { cartItems } = useContext(CartContext);
+  const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <>
@@ -21,8 +21,6 @@ const Header = () => {
           <img src={logo} alt="logo" className="logo" />
           <CatalogMenu />
           <Searchbar />
-        </div>
-        <div className="header__contacts">
           <Link to="/cart" className="cart-icon-wrapper">
             <img
               src={cart}
@@ -31,6 +29,8 @@ const Header = () => {
             />
             {totalCount > 0 && <div className="cart-badge">{totalCount}</div>}
           </Link>
+        </div>
+        <div className="header__contacts">
           <a
             href="tel:+74955329975"
             className="contact-link"
