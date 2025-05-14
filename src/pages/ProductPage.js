@@ -33,10 +33,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const cleanSlug = location.pathname.replace(
-        "https://api.vellmar.ru/product",
-        ""
-      );
+      const cleanSlug = location.pathname.replace("/product", "");
       try {
         const response = await fetch(
           `https://api.vellmar.ru/products/search?link=${cleanSlug}`
