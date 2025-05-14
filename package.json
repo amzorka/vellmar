@@ -1,5 +1,5 @@
 {
-  "proxy": "https://api.vellmar.ru",
+  "proxy": "https://api.vellmar.ru/docs",
   "name": "vellmar",
   "version": "0.1.0",
   "private": true,
