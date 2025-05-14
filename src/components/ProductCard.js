@@ -20,7 +20,7 @@ const ProductCard = ({ product, openModal }) => {
   return (
     <div className="product-card">
       <div className="product-sku">Артикул: {product.article_number}</div>
-      <Link to={`/product${product.link}`}>
+      <Link to={`https://api.vellmar.ru/product${product.link}`}>
         <img
           src={imageUrl}
           alt={product.title.replace(/;+$/, "")}
@@ -41,7 +41,10 @@ const ProductCard = ({ product, openModal }) => {
           : "Цена по запросу"}
       </p>
       {hasVariants ? (
-        <Link to={`/product${product.link}`} className="product-choose-button">
+        <Link
+          to={`https://api.vellmar.ru/product${product.link}`}
+          className="product-choose-button"
+        >
           Выбрать
         </Link>
       ) : product.price > 0 ? (
