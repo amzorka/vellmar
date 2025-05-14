@@ -18,14 +18,16 @@ const Header = () => {
     <>
       <header className="header">
         <div className="header__brands">
-          <img src={logo} alt="logo" className="logo" />
+          <a href="/">
+            <img src={logo} alt="logo" className="logo" />
+          </a>
           <CatalogMenu />
           <Searchbar />
           <Link to="/cart" className="cart-icon-wrapper">
             <img
               src={cart}
               alt="cart"
-              style={{ width: "30px", height: "30px" }}
+              style={{ width: "25px", height: "25px" }}
             />
             {totalCount > 0 && <div className="cart-badge">{totalCount}</div>}
           </Link>

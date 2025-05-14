@@ -17,6 +17,7 @@
 }
 
 .products-container {
+  margin-top: 90px;
   display: flex;
   flex-direction: column;
   background-color: #f6f6f6;
@@ -28,8 +29,8 @@
 }
 
 .section-container {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 80px;
 }
 
 .section-header {
@@ -85,11 +86,11 @@
 }
 
 .product-card {
-  flex: 0 0 200px;
-  height: 434px;
+  flex: 0 0 210px;
+  height: 404px;
   background: white;
   border-radius: 20px;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -134,7 +135,7 @@
   font-size: 16;
   font-weight: 700;
   position: absolute;
-  bottom: 63px;
+  bottom: 55px;
   color: #000000;
 }
 

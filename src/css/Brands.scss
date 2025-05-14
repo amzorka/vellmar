@@ -1,10 +1,9 @@
 .alphabet-nav {
-  margin-left: 80px;
-  margin-right: 80px;
+  max-width: 1280px;
+  margin: 50px auto;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 50px;
   font-size: 24px;
   font-family: "Inter";
   font-weight: 700;
@@ -22,7 +21,8 @@
 }
 
 .brands-list {
-  margin: 50px 80px 100px 80px;
+  max-width: 1280px;
+  margin: 50px auto 100px auto;
 }
 
 .letter-group {

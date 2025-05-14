@@ -1,54 +1,54 @@
 .category-list-container {
-    display: flex;
-    justify-content: center;
-    padding: 35px 80px;
-  }
-  
-  .categories-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 305px);  // 4 карточки в строке
-    grid-gap: 30px;  // Расстояние между карточками
-    width: 1280px;
-    height: 1015px;
-  }
-  
-  .categories-card {
-    position: relative;
-    width: 305px;
-    height: 305px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // drop shadow
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    &:hover {
-    transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);  // Увеличенный эффект при наведении
-    }
-  
-    .categories-image {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;  // Заполнение картинки по размеру карточки
-      scale: 0.7;
-    }
-  
-    .categories-name {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 20px;
-      font-weight: 600;  // SemiBold
-      color: #000000;
-      text-align: center;
-      padding: 5px;
-      line-height: 120%;
-    }
+  display: flex;
+  justify-content: center;
+  padding: 35px 80px;
+}
 
-    .category-card-link {
-      text-decoration: none;
-      color: inherit;
-    }
+.categories-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 305px); // 4 карточки в строке
+  grid-gap: 20px; // Расстояние между карточками
+  max-width: 1280px;
+  height: 1015px;
+}
+
+.categories-card {
+  position: relative;
+  width: 305px;
+  height: 305px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); // drop shadow
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); // Увеличенный эффект при наведении
   }
+
+  .categories-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; // Заполнение картинки по размеру карточки
+    scale: 0.7;
+  }
+
+  .categories-name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 600; // SemiBold
+    color: #000000;
+    text-align: center;
+    padding: 5px;
+    line-height: 120%;
+  }
+
+  .category-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+}

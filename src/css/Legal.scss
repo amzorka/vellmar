@@ -1,7 +1,6 @@
 .legal-content {
-  margin-top: 40px;
-  width: calc(100% - 160px);
-  margin: 0 auto;
+  max-width: 1280px;
+  margin: 40px auto 0 auto;
   font-family: "Inter";
   line-height: 150%;
 
@@ -38,7 +37,8 @@
 }
 
 .page-heading {
-  margin-left: 80px;
+  max-width: 1280px;
+  margin: 0 auto;
   font-family: "Inter";
   font-size: 24px;
   font-weight: 700;

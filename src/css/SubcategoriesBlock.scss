@@ -1,8 +1,6 @@
 .subcategories-block {
-  width: calc(100% - 160px);
-  margin-top: 30px;
-  margin-left: 80px;
-  margin-right: 80px;
+  max-width: 1280px;
+  margin: 30px auto 0 auto;
   display: flex;
   flex-wrap: wrap;
   gap: 20px 30px; // 20px между строками, 30px между карточками по горизонтали

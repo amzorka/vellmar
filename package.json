@@ -1,5 +1,4 @@
 {
-  "proxy": "http://83.217.220.45:6109",
   "name": "vellmar",
   "version": "0.1.0",
   "private": true,

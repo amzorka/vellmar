@@ -30,7 +30,14 @@ const ProductCard = ({ product, openModal }) => {
       </Link>
       <p className="product-price">
         {product.price > 0
-          ? `Цена: ${product.price.toLocaleString("ru-RU")} руб.`
+          ? `${new Intl.NumberFormat("ru-RU", {
+              style: "decimal",
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+              useGrouping: true,
+            })
+              .format(product.price)
+              .replace(",", ".")} ₽`
           : "Цена по запросу"}
       </p>
       {hasVariants ? (

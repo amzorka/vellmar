@@ -1,18 +1,18 @@
 .breadcrumbs {
-    margin-top: 50px;
-    margin-left: 80px;
-    font-size: 14px;
-    font-family: 'Inter';
-    font-weight: 300;
-  
-    a {
-      color: #767676;
-      text-decoration: none;
-      margin-right: 3px;
-    }
-  
-    span {
-      color: #767676;
-      margin-left: 0;
-    }
+  width: 1280px;
+  margin: 50px auto;
+  font-size: 14px;
+  font-family: "Inter";
+  font-weight: 300;
+
+  a {
+    color: #767676;
+    text-decoration: none;
+    margin-right: 3px;
   }
+
+  span {
+    color: #767676;
+    margin-left: 0;
+  }
+}

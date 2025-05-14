@@ -30,7 +30,7 @@ function Home() {
             style={{
               margin: "50px auto 80px auto",
               display: "flex",
-              width: "calc(100% - 160px)",
+              maxWidth: "1280px",
             }}
           ></img>
           <CategorySlider />

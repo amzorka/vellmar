@@ -20,7 +20,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 80px;
+  max-width: 1280px;
+  margin: 20px auto;
   background: #ffffff;
 
   &__brands {
@@ -29,6 +30,7 @@
   }
 
   .logo {
+    display: flex;
     width: 131px;
     height: 40px;
     margin-right: 30px;
@@ -53,8 +55,8 @@
     display: flex;
     justify-content: start;
     align-items: center;
-    max-width: 1400px;
-    margin: 0 80px;
+    max-width: 1280px;
+    margin: 0 auto;
   }
 
   .primary-nav {
@@ -97,7 +99,7 @@
 
 .cart-icon-wrapper {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   margin-left: 30px;
 }
 

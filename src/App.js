@@ -10,6 +10,8 @@ import CartPage from "./pages/CartPage";
 import BrandCatalog from "./pages/BrandCatalog";
 import Legal from "./pages/Legal";
 import Delivery from "./pages/Delivery";
+import Contacts from "./pages/Contacts";
+import About from "./pages/About";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/legal" element={<Legal />} />
+        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/about" element={<About />} />
         <Route path="/delivery" element={<Delivery />} />
         <Route path="/brand-products" element={<BrandCatalog />} />
         <Route path="/catalog/:categorySlug" element={<CategoryPage />} />

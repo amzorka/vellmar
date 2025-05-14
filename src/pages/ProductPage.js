@@ -156,7 +156,14 @@ const ProductPage = () => {
 
           <div className="product-page-price">
             {currentPrice > 0
-              ? `${currentPrice.toLocaleString("ru-RU")} ₽`
+              ? `${new Intl.NumberFormat("ru-RU", {
+                  style: "decimal",
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                  useGrouping: true,
+                })
+                  .format(currentPrice)
+                  .replace(",", ".")} ₽`
               : "Цена по запросу"}
           </div>
 

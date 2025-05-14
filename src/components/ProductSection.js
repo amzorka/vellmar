@@ -36,7 +36,7 @@ const ProductSection = () => {
       for (const [categoryName, fullPath] of Object.entries(CATEGORY_PATHS)) {
         try {
           const response = await fetch(
-            `/products?category=${encodeURIComponent(
+            `https://api.vellmar.ru/products?category=${encodeURIComponent(
               fullPath
             )}&limit=5&offset=0`
           );
