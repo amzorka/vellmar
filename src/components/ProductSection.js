@@ -92,7 +92,7 @@ const ProductSection = () => {
                         Артикул: {product.article_number}
                       </div>
                       <Link
-                        to={`https://api.vellmar.ru/product${product.link}`}
+                        to={`/product${product.link}`}
                         style={{ textDecoration: "none" }}
                       >
                         <div className="product-image-container">
