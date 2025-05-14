@@ -36,7 +36,7 @@ const ProductPage = () => {
       const cleanSlug = location.pathname.replace("/product", "");
       try {
         const response = await fetch(
-          `https://vellmar.ru/products/search?link=${cleanSlug}`
+          `https://api.vellmar.ru/products/search?link=${cleanSlug}`
         );
         const data = await response.json();
         if (data && data.link) {
