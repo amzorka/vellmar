@@ -33,9 +33,14 @@ const ProductPage = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const cleanSlug = location.pathname.replace("/product", "");
+      const cleanSlug = location.pathname.replace(
+        "https://api.vellmar.ru/product",
+        ""
+      );
       try {
-        const response = await fetch(`/products/search?link=${cleanSlug}`);
+        const response = await fetch(
+          `https://api.vellmar.ru/products/search?link=${cleanSlug}`
+        );
         const data = await response.json();
         if (data && data.link) {
           setProduct(data);

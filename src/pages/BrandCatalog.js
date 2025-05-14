@@ -33,7 +33,7 @@ const BrandCatalog = () => {
     setLoading(true);
 
     fetch(
-      `/products?brand=${encodeURIComponent(
+      `https://api.vellmar.ru/products?brand=${encodeURIComponent(
         brand
       )}&limit=${PRODUCTS_PER_PAGE}&offset=${offset}`
     )

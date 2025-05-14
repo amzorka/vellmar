@@ -13,7 +13,7 @@ function Brands() {
   const [loading, setLoading] = useState(true); // ← добавили состояние загрузки
 
   useEffect(() => {
-    fetch("/brands")
+    fetch("https://api.vellmar.ru/brands")
       .then((res) => res.json())
       .then((data) => {
         const names = data.map((brand) => brand.name.trim());

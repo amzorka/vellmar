@@ -32,7 +32,7 @@ const SearchResults = () => {
 
     setLoading(true);
     fetch(
-      `/search?value=${encodeURIComponent(
+      `https://api.vellmar.ru/search?value=${encodeURIComponent(
         query
       )}&limit=${PRODUCTS_PER_PAGE}&offset=${offset}`
     )

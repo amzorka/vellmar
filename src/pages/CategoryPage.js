@@ -76,7 +76,7 @@ const CategoryPage = () => {
 
     setMinPrice(0); // Минимальная цена всегда 0
 
-    let url = `/products-max-price?`;
+    let url = `https://api.vellmar.ru/products-max-price?`;
     if (path) url += `category=${encodeURIComponent(path)}`;
     if (brand) url += `${path ? "&" : ""}brand=${encodeURIComponent(brand)}`;
 
@@ -105,7 +105,7 @@ const CategoryPage = () => {
     setMinPrice(0);
     setMaxPriceLoaded(false); // 👈 Устанавливаем флаг загрузки
 
-    let url = `/products-max-price?`;
+    let url = `https://api.vellmar.ru/products-max-price?`;
     if (path) url += `category=${encodeURIComponent(path)}`;
     if (brand) url += `${path ? "&" : ""}brand=${encodeURIComponent(brand)}`;
 
@@ -132,7 +132,7 @@ const CategoryPage = () => {
     setLoading(true);
     const ascending = selectedSort === "cheap";
 
-    let url = `/products?limit=${PRODUCTS_PER_PAGE}&offset=${offset}&order_by=price&ascending=${ascending}&min_price=0&max_price=${priceRange.max}`;
+    let url = `https://api.vellmar.ru/products?limit=${PRODUCTS_PER_PAGE}&offset=${offset}&order_by=price&ascending=${ascending}&min_price=0&max_price=${priceRange.max}`;
 
     if (path) url += `&category=${encodeURIComponent(path)}`;
     if (brand) url += `&brand=${encodeURIComponent(brand)}`;
