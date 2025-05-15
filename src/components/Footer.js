@@ -99,8 +99,7 @@ const Footer = () => {
             <div className="footer__contact-item" style={{ marginTop: "30px" }}>
               Юридический адрес: 117342, г. Москва,
               <br /> вн.тер.г. муниципальный округ Коньково,
-              <br /> ул. Обручева, д. 52, стр. 3<br /> пн-сб: 8:00-20:00. вс:
-              09:00-19:00
+              <br /> ул. Обручева, д. 52, стр. 3<br /> пн-пт: 9:00-18:00
             </div>
             <div
               className="footer__contact-item"

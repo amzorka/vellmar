@@ -107,19 +107,6 @@ const ProductPage = () => {
       />
       <div className="product-content">
         <div className="product-images-section">
-          <div className="product-thumbnails">
-            {sortedImages.map((imgObj, index) => (
-              <img
-                key={index}
-                src={`https://famarket.ru${imgObj.link}`}
-                alt={`Image ${index}`}
-                className={`product-thumbnail ${
-                  index === activeImageIndex ? "active-thumbnail" : ""
-                }`}
-                onClick={() => setActiveImageIndex(index)}
-              />
-            ))}
-          </div>
           <div className="product-main-image">
             <img
               src={`https://famarket.ru${sortedImages[activeImageIndex]?.link}`}
