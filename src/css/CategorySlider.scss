@@ -35,7 +35,7 @@
 }
 
 .cards-scroll-container {
-  max-width: 1280px;
+  max-width: 1300px;
   margin: 0 auto;
   overflow-x: auto;
   scrollbar-width: none;
@@ -50,8 +50,7 @@
   max-width: 1320px;
   display: inline-flex;
   gap: 20px;
-  padding: 40px 5px;
-  padding-left: 0;
+  padding: 40px 30px 40px 10px;
   box-sizing: border-box;
   overflow: visible;
 }

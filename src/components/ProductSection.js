@@ -88,9 +88,6 @@ const ProductSection = () => {
 
                   return (
                     <div key={index} className="product-card">
-                      <div className="product-sku">
-                        Артикул: {product.article_number}
-                      </div>
                       <Link
                         to={`/product${product.link}`}
                         style={{ textDecoration: "none" }}
