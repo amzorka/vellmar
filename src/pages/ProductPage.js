@@ -130,10 +130,6 @@ const ProductPage = () => {
 
         <div className="product-info-section">
           <h1 className="product-page-title">{product.title}</h1>
-          <div className="product-page-article">
-            Артикул: {product.article_number}
-          </div>
-
           {product.variants && Object.keys(product.variants).length > 0 && (
             <div className="variants-section">
               <div className="variant-title">Варианты:</div>
