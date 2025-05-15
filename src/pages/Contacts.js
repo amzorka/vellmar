@@ -8,7 +8,6 @@ function Contacts() {
     <>
       <Header />
       <Breadcrumbs />
-      <PartnersSection />
       <Footer />
     </>
   );

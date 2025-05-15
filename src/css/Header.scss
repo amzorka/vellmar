@@ -16,7 +16,21 @@
   src: url("../fonts/Inter_18pt-Light.ttf");
 }
 
+.nav-menu {
+  height: 95px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: white;
+  transition: transform 0.3s ease;
+
+  &.header-hidden {
+    transform: translateY(-100%);
+  }
+}
+
 .header {
+  padding-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,13 +75,13 @@
 
   .primary-nav {
     display: flex;
-    gap: 75px;
+    gap: 40px;
   }
 
   .nav-link {
     font-size: 14px;
     font-family: "Inter";
-    font-weight: 300;
+    font-weight: 400;
     color: #0d0d0d;
     text-decoration: none;
     position: relative;

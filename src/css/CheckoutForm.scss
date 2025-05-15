@@ -121,3 +121,7 @@
 .checkout-submit:hover {
   background-color: #b56133;
 }
+
+.form-column input.error::placeholder {
+  color: red;
+}

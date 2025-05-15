@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import "../css/Header.scss";
 import logo from "../images/logo.png";
 import Searchbar from "./Searchbar";
@@ -14,8 +14,32 @@ const Header = () => {
   const { cartItems } = useContext(CartContext);
   const totalCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  const headerRef = useRef(null);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [hidden, setHidden] = useState(false);
+
+  const handleScroll = () => {
+    const currentY = window.scrollY;
+
+    if (currentY > lastScrollY && currentY > 100) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+
+    setLastScrollY(currentY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <>
+    <div
+      className={`nav-menu ${hidden ? "header-hidden" : ""}`}
+      ref={headerRef}
+    >
       <header className="header">
         <div className="header__brands">
           <a href="/">
@@ -68,12 +92,11 @@ const Header = () => {
             <NavLink to="/brands">Бренды</NavLink>
             <NavLink to="/about">О нас</NavLink>
             <NavLink to="/delivery">Доставка и разгрузка</NavLink>
-            <NavLink to="/legal">Правовая информация</NavLink>
             <NavLink to="/contacts">Контакты</NavLink>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -104,7 +104,6 @@ function Delivery() {
           расскажем.
         </p>
       </section>
-      <PartnersSection />
       <Footer />
     </>
   );

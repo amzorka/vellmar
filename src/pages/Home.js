@@ -7,6 +7,7 @@ import InfoBlocksSection from "../components/InfoBlocksSection";
 import Footer from "../components/Footer";
 import PageLoader from "../components/PageLoader";
 import { useState, useEffect } from "react";
+import FourBlocksSection from "../components/FourBlocksSection";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,7 @@ function Home() {
           <ProductSection />
           <h2 className="partners-title">Наши партнеры и поставщики</h2>
           <PartnersSection />
+          <FourBlocksSection />
           <InfoBlocksSection />
           <Footer />
         </>

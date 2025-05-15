@@ -253,7 +253,6 @@ function Legal() {
           </p>
         </section>
       </div>
-      <PartnersSection />
       <Footer />
     </div>
   );

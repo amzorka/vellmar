@@ -91,9 +91,6 @@ function Brands() {
           </div>
         </>
       )}
-      <h2 className="partners-title">Наши партнеры и поставщики</h2>
-      <PartnersSection />
-      <InfoBlocksSection />
       <Footer />
     </div>
   );

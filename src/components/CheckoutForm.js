@@ -3,11 +3,49 @@ import "../css/CheckoutForm.scss";
 
 const CheckoutForm = () => {
   const [orderType, setOrderType] = useState("individual");
+  const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState({});
+
+  const requiredFields = {
+    individual: ["name", "phone", "email", "address"],
+    company: ["companyName", "inn", "contact", "phone", "email", "address"],
+  };
+
+  const handleChange = (field, value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: false }));
+  };
+
+  const handleSubmit = () => {
+    const fields = requiredFields[orderType];
+    const newErrors = {};
+
+    fields.forEach((field) => {
+      if (!formData[field]) {
+        newErrors[field] = true;
+      }
+    });
+
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Данные отправлены:", formData);
+    }
+  };
+
+  const renderInput = (field, placeholder) => (
+    <input
+      className={errors[field] ? "error" : ""}
+      placeholder={placeholder}
+      onChange={(e) => handleChange(field, e.target.value)}
+    />
+  );
 
   return (
     <div className="checkout-section">
       <h2 className="checkout-title">Оформление заказа</h2>
       <p className="checkout-subtitle">Я оформляю заказ как:</p>
+
       <div className="checkout-type-switch">
         <button
           className={`type-btn ${orderType === "individual" ? "active" : ""}`}
@@ -27,16 +65,16 @@ const CheckoutForm = () => {
         <div className="form-column">
           {orderType === "company" ? (
             <>
-              <input type="text" placeholder="Наименование компании *" />
-              <input type="text" placeholder="ИНН *" />
-              <input type="text" placeholder="КПП" />
-              <input type="text" placeholder="Юридический адрес" />
+              {renderInput("companyName", "Наименование компании *")}
+              {renderInput("inn", "ИНН *")}
+              {renderInput("kpp", "КПП")}
+              {renderInput("legalAddress", "Юридический адрес")}
             </>
           ) : (
             <>
-              <input type="text" placeholder="Имя *" />
-              <input type="text" placeholder="Телефон *" />
-              <input type="email" placeholder="e-mail *" />
+              {renderInput("name", "Имя *")}
+              {renderInput("phone", "Телефон *")}
+              {renderInput("email", "e-mail *")}
             </>
           )}
         </div>
@@ -44,19 +82,20 @@ const CheckoutForm = () => {
         <div className="form-column">
           {orderType === "company" ? (
             <>
-              <input type="text" placeholder="Контактное лицо *" />
-              <input type="text" placeholder="Телефон *" />
-              <input type="email" placeholder="e-mail *" />
-              <input type="text" placeholder="Адрес доставки *" />
+              {renderInput("contact", "Контактное лицо *")}
+              {renderInput("phone", "Телефон *")}
+              {renderInput("email", "e-mail *")}
+              {renderInput("address", "Адрес доставки *")}
             </>
           ) : (
             <>
-              <input type="text" placeholder="Город" />
-              <input type="text" placeholder="Адрес доставки *" />
+              {renderInput("city", "Город")}
+              {renderInput("address", "Адрес доставки *")}
             </>
           )}
         </div>
       </div>
+
       <div className="checkout-bottom">
         <p className="checkout-note">
           Отправляя заказ, вы соглашаетесь с{" "}
@@ -65,7 +104,9 @@ const CheckoutForm = () => {
           </a>
           .
         </p>
-        <button className="checkout-submit">Оставить заявку</button>
+        <button className="checkout-submit" onClick={handleSubmit}>
+          Оставить заявку
+        </button>
       </div>
     </div>
   );

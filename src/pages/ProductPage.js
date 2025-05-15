@@ -243,7 +243,6 @@ const ProductPage = () => {
           )}
         </div>
       </div>
-      <PartnersSection />
       <Footer />
     </div>
   );
