@@ -8,7 +8,7 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
   const getVisiblePages = () => {
     const pages = [];
 
-    if (totalPages <= 7) {
+    if (totalPages <= 5) {
       for (let i = 1; i <= totalPages; i++) pages.push(i);
     } else {
       if (currentPage <= 3) {
@@ -59,16 +59,23 @@ const Pagination = ({ totalPages, currentPage, onPageChange }) => {
         </button>
 
         <div className="page-numbers">
-          {visiblePages.map((page, index) => (
-            <button
-              key={index}
-              className={`page-number ${currentPage === page ? "active" : ""}`}
-              onClick={() => handlePageChange(page)}
-              disabled={page === "..."}
-            >
-              {page}
-            </button>
-          ))}
+          {visiblePages.map((page, index) =>
+            page === "..." ? (
+              <span key={index} className="dots">
+                ...
+              </span>
+            ) : (
+              <button
+                key={index}
+                className={`page-number ${
+                  currentPage === page ? "active" : ""
+                }`}
+                onClick={() => handlePageChange(page)}
+              >
+                {page}
+              </button>
+            )
+          )}
         </div>
 
         <button
