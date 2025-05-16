@@ -89,7 +89,7 @@ const Footer = () => {
 
           <div className="footer__contacts">
             <div className="footer__contact-item">
-              +7 995 505 7514
+              +7 (495) 532-99-75
               <img src={darkPhone} className="footer__contact-icon" />
             </div>
             <div className="footer__contact-item">
