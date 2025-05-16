@@ -173,8 +173,8 @@
   }
 
   .search-wrapper {
-    margin-top: 10px;
-    width: 100%;
+    width: calc(100% - 40px);
+    margin: 0 auto;
   }
 
   .nav-bar {
@@ -183,5 +183,12 @@
 
   .catalog-wrapper {
     display: none;
+  }
+
+  .cart-badge {
+    width: 16px;
+    height: 16px;
+    top: 55px;
+    right: 52px;
   }
 }

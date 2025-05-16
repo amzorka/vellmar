@@ -8,10 +8,13 @@ import Footer from "../components/Footer";
 import PageLoader from "../components/PageLoader";
 import { useState, useEffect } from "react";
 import FourBlocksSection from "../components/FourBlocksSection";
+import useIsMobile from "../hooks/useIsMobile";
+import MobileHeader from "../components/MobileHeader";
 import "../css/Home.scss";
 
 function Home() {
   const [loading, setLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     // Имитация загрузки 500 мс (потом можно заменить на реальную)
@@ -21,7 +24,7 @@ function Home() {
 
   return (
     <>
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       {loading ? (
         <PageLoader />
       ) : (

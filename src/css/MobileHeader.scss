@@ -1,0 +1,108 @@
+// MobileHeader.scss
+
+.mobile-header {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  box-sizing: border-box;
+
+  .mobile-header__top {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+
+    .mobile-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .mobile-header__icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .mobile-header__cart {
+        position: relative;
+        width: 23px;
+        height: 23px;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        .cart-badge {
+          position: absolute;
+          top: 55px;
+          right: 62px;
+          background-color: #e67549;
+          color: #fff;
+          border-radius: 50%;
+          width: 11px;
+          height: 12px;
+          font-size: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .mobile-header__burger {
+        background: none;
+        border: none;
+        padding: 0;
+        width: 20px;
+        height: 14px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 10px;
+
+        span {
+          display: block;
+          width: 100%;
+          height: 1px;
+          background-color: #000; // или другой нужный цвет
+          border-radius: 1px;
+        }
+      }
+    }
+  }
+}
+
+.mobile-header__contacts {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 36px;
+  margin: 0 auto;
+  background-color: #f3f3f3;
+  box-sizing: border-box;
+  padding: 0 20px;
+
+  a {
+    text-decoration: none;
+    font-family: "Inter";
+    font-size: 16px;
+    font-weight: 300;
+    color: #000000;
+  }
+
+  .contacts-number {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .contacts-mail {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+}
