@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import PageLoader from "../components/PageLoader";
 import { useState, useEffect } from "react";
 import FourBlocksSection from "../components/FourBlocksSection";
+import "../css/Home.scss";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -25,15 +26,7 @@ function Home() {
         <PageLoader />
       ) : (
         <>
-          <img
-            alt="banner"
-            src={banner}
-            style={{
-              margin: "50px auto 80px auto",
-              display: "flex",
-              maxWidth: "1280px",
-            }}
-          ></img>
+          <img className="home-banner" alt="banner" src={banner}></img>
           <CategorySlider />
           <ProductSection />
           <h2 className="partners-title">Наши партнеры и поставщики</h2>

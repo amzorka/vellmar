@@ -134,3 +134,54 @@
   align-items: center;
   justify-content: center;
 }
+
+// ----------------------------------------------------------------------------------
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 0;
+    padding: 10px;
+    width: calc(100vw - 40px);
+  }
+
+  .header__contacts {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 12px;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+
+  .header__brands {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    margin-right: 0;
+    width: 110px;
+    height: auto;
+  }
+
+  .cart-icon-wrapper {
+    margin-left: 0;
+  }
+
+  .search-wrapper {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .nav-bar {
+    display: none;
+  }
+
+  .catalog-wrapper {
+    display: none;
+  }
+}

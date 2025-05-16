@@ -1,0 +1,11 @@
+.home-banner {
+  margin: 50px auto 80px auto;
+  display: flex;
+  max-width: 1280px;
+}
+
+@media (max-width: 767px) {
+  .home-banner {
+    width: calc(100vw - 40px);
+  }
+}

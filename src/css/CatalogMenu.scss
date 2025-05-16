@@ -127,22 +127,30 @@
 
 .catalog-menu {
   position: absolute;
-  top: 55px; // высота кнопки
+  top: 55px;
   left: 0;
   width: 350px;
   background-color: #e67549;
   border-radius: 0 10px 10px 10px;
-  padding: 3px 0 3px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow: visible;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   z-index: 100;
+
+  // Начальное состояние
+  max-height: 0;
+  opacity: 0;
+  padding-top: 0;
+  padding-bottom: 0;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease,
+    transform 0.3s ease;
 
   &.open {
+    max-height: 500px; // достаточно, чтобы вместить весь список
     opacity: 1;
+    padding-top: 3px;
+    padding-bottom: 3px;
     transform: translateY(0);
-    pointer-events: auto;
   }
 
   &::after {
@@ -183,4 +191,9 @@
       }
     }
   }
+}
+
+.catalog-menu ul li a {
+  color: #fff;
+  text-decoration: none;
 }
