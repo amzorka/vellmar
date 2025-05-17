@@ -5,6 +5,7 @@ import cartIcon from "../images/cart.png";
 import phoneIcon from "../images/phone.png";
 import mailIcon from "../images/mail.png";
 import Searchbar from "./Searchbar";
+import MobileMenu from "./MobileMenu";
 import { CartContext } from "../contexts/CartContext";
 import "../css/MobileHeader.scss";
 
@@ -64,28 +65,7 @@ const MobileHeader = () => {
       </div>
 
       <Searchbar />
-
-      {menuOpen && (
-        <div className="mobile-header__menu">
-          <ul>
-            <li>
-              <Link to="/catalog">Каталог</Link>
-            </li>
-            <li>
-              <Link to="/brands">Бренды</Link>
-            </li>
-            <li>
-              <Link to="/about">О нас</Link>
-            </li>
-            <li>
-              <Link to="/delivery">Доставка и разгрузка</Link>
-            </li>
-            <li>
-              <Link to="/contacts">Контакты</Link>
-            </li>
-          </ul>
-        </div>
-      )}
+      <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
     </div>
   );
 };
