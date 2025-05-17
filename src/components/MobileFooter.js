@@ -50,6 +50,9 @@ const MobileFooter = () => {
         ул. Обручева, д. 52, стр. 3 <br />
         пн-сб: 8:00–20:00, вс: 09:00–19:00
       </div>
+      <div className="mobile-footer__address" style={{ color: "#767676" }}>
+        © 2020-2025 ООО «Джинова»
+      </div>
       <div className="mobile-footer__section">
         <h2>КАТАЛОГ</h2>
         {categories.map((c, i) => (
