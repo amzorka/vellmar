@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 import FourBlocksSection from "../components/FourBlocksSection";
 import useIsMobile from "../hooks/useIsMobile";
 import MobileHeader from "../components/MobileHeader";
+import MobileInfoBlock from "../components/MobileInfoBlock";
+import MobileFooter from "../components/MobileFooter";
 import "../css/Home.scss";
 
 function Home() {
@@ -35,8 +37,8 @@ function Home() {
           <h2 className="partners-title">Наши партнеры и поставщики</h2>
           <PartnersSection />
           <FourBlocksSection />
-          <InfoBlocksSection />
-          <Footer />
+          {isMobile ? <MobileInfoBlock /> : <InfoBlocksSection />}
+          {isMobile ? <MobileFooter /> : <Footer />}
         </>
       )}
     </>

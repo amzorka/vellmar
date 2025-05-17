@@ -70,7 +70,7 @@
     gap: 20px; /* расстояние между иконкой и текстом */
   }
 
-  .card-title {
+  .small-card-title {
     font-family: "Inter";
     font-size: 18px;
     font-weight: 600;
@@ -212,5 +212,138 @@
 
   p + p {
     margin-top: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-and-image-wrapper {
+    width: calc(100% - 40px);
+    margin: 0 auto 50px auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .info-left,
+  .info-right {
+    width: 362px;
+    margin: 0;
+    gap: 20px;
+  }
+
+  .top-row {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+
+  .info-card.small,
+  .info-card.large {
+    width: 362px;
+    padding: 12px 15px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+
+  .why-us-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .small-card-title,
+  .big-card-title {
+    font-size: 16px !important;
+    margin: 0;
+    line-height: 140%;
+  }
+
+  .card-text,
+  .big-card-text {
+    font-size: 14px !important;
+    line-height: 140%;
+    margin: 10px 0 0;
+    height: auto;
+    width: auto;
+    margin-top: 10px !important;
+    font-weight: 300 !important;
+  }
+
+  .text-content {
+    height: auto;
+  }
+
+  .info-right {
+    height: 215px;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .right-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .card-1 {
+    height: 120px;
+  }
+  .card-2 {
+    height: 134px;
+  }
+  .card-3 {
+    height: 140px !important;
+  }
+
+  .slogan {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+  }
+
+  .slogan-line {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+    line-height: 130%;
+    margin: 0;
+    left: 0;
+  }
+
+  .first-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+
+  .slogan-logo {
+    height: 35px;
+    width: auto;
+    flex-shrink: 0;
+  }
+
+  .slogan-first-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-left: 122px;
+    margin-top: 2px;
+  }
+
+  .second-line {
+    top: 45px;
+  }
+
+  .third-line {
+    top: 80px;
+  }
+
+  .second-line,
+  .third-line {
+    margin: 0;
   }
 }

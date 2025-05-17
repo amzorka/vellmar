@@ -50,3 +50,16 @@
     transform: translateX(-50%);
   }
 }
+
+@media (max-width: 768px) {
+  .partners-title {
+    font-size: 32px;
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+
+  .partners-section {
+    padding-top: 50px;
+    padding-bottom: 62px;
+  }
+}

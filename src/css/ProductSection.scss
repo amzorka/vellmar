@@ -212,6 +212,7 @@
   .products-grid {
     gap: 10px;
     margin-left: 20px;
+    padding-left: 3px;
   }
 
   .product-card {
@@ -241,5 +242,10 @@
 
   .add-to-cart-button {
     display: none !important;
+  }
+
+  .open-catalog-button {
+    width: 362px;
+    height: 62px;
   }
 }

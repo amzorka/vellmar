@@ -8,7 +8,7 @@ function FourBlocksSection() {
     <div className="cards-and-image-wrapper">
       <div className="info-left">
         <div className="top-row">
-          <div className="info-card small">
+          <div className="info-card small card-1">
             <div className="icon-and-title">
               <img
                 src={Icon1}
@@ -16,14 +16,14 @@ function FourBlocksSection() {
                 className="why-us-icon"
                 style={{ marginBottom: "10px" }}
               />
-              <h3 className="card-title">1000+ ДОВОЛЬНЫХ КЛИЕНТОВ</h3>
+              <h3 className="small-card-title">1000+ ДОВОЛЬНЫХ КЛИЕНТОВ</h3>
             </div>
             <p className="card-text">
               Наш подход ценят за стабильное качество, ответственность и
               внимание к деталям.
             </p>
           </div>
-          <div className="info-card small">
+          <div className="info-card small card-2">
             <div className="icon-and-title">
               <img
                 src={Icon2}
@@ -31,7 +31,7 @@ function FourBlocksSection() {
                 className="why-us-icon"
                 style={{ marginBottom: "10px" }}
               />
-              <h3 className="card-title">3000+ ПОЗИЦИЙ В АССОРТИМЕНТЕ</h3>
+              <h3 className="small-card-title">3000+ ПОЗИЦИЙ В АССОРТИМЕНТЕ</h3>
             </div>
             <p className="card-text">
               Большой ассортимент строительных материалов с постоянным складским
@@ -40,7 +40,7 @@ function FourBlocksSection() {
           </div>
         </div>
 
-        <div className="info-card large">
+        <div className="info-card large card-3">
           <div className="icon-and-text">
             <img
               src={Icon3}

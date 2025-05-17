@@ -21,34 +21,34 @@ const CatalogMenu = () => {
       <div className={`catalog-menu ${isOpen ? "open" : ""}`}>
         <ul>
           <li>
-            <Link to="/mixes">СМЕСИ СТРОИТЕЛЬНЫЕ</Link>
+            <Link to="/catalog/mixes">СМЕСИ СТРОИТЕЛЬНЫЕ</Link>
           </li>
           <li>
-            <Link to="/general">ОБЩЕСТРОЙ</Link>
+            <Link to="/catalog/general">ОБЩЕСТРОЙ</Link>
           </li>
           <li>
-            <Link to="/isolation">ИЗОЛЯЦИЯ</Link>
+            <Link to="/catalog/isolation">ИЗОЛЯЦИЯ</Link>
           </li>
           <li>
-            <Link to="/instrument">ИНСТРУМЕНТ</Link>
+            <Link to="/catalog/instrument">ИНСТРУМЕНТ</Link>
           </li>
           <li>
-            <Link to="/lumber">ПИЛОМАТЕРИАЛЫ</Link>
+            <Link to="/catalog/lumber">ПИЛОМАТЕРИАЛЫ</Link>
           </li>
           <li>
-            <Link to="/metal">МЕТАЛЛ</Link>
+            <Link to="/catalog/metal">МЕТАЛЛ</Link>
           </li>
           <li>
-            <Link to="/paints">ЛАКОКРАСОЧНЫЕ МАТЕРИАЛЫ</Link>
+            <Link to="/catalog/paints">ЛАКОКРАСОЧНЫЕ МАТЕРИАЛЫ</Link>
           </li>
           <li>
-            <Link to="/electrogoods">ЭЛЕКТРОТОВАРЫ</Link>
+            <Link to="/catalog/electrogoods">ЭЛЕКТРОТОВАРЫ</Link>
           </li>
           <li>
-            <Link to="/engineering">ИНЖЕНЕРНАЯ ТЕХНИКА</Link>
+            <Link to="/catalog/plumbing">ИНЖЕНЕРНАЯ САНТЕХНИКА</Link>
           </li>
           <li>
-            <Link to="/finishing">ОТДЕЛОЧНЫЕ МАТЕРИАЛЫ</Link>
+            <Link to="/catalog/finishing">ОТДЕЛОЧНЫЕ МАТЕРИАЛЫ</Link>
           </li>
         </ul>
       </div>
