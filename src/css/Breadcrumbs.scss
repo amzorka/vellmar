@@ -17,3 +17,11 @@
     pointer-events: all;
   }
 }
+
+@media (max-width: 768px) {
+  .breadcrumbs {
+    width: calc(100% - 40px);
+    font-size: 12px;
+    margin: 30px auto 40px auto !important;
+  }
+}
