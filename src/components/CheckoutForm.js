@@ -19,10 +19,8 @@ const CheckoutForm = () => {
   console.log("cartItems:", cartItems);
 
   const products = cartItems.map((item) => ({
-    link: item.images?.[0]?.link || "", // безопасно, даже если изображения нет
-    name: item.selectedVariant
-      ? `${item.name} (${item.selectedVariant})`
-      : item.name,
+    link: item.images?.[0]?.link || "",
+    name: item.title || item.name || "Неизвестный товар",
     price: item.price,
     count: item.quantity,
   }));
