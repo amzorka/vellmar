@@ -89,8 +89,8 @@ const CheckoutForm = () => {
 
     const endpoint =
       orderType === "individual"
-        ? "https://api.vellmar.ru/order_order_natural_post"
-        : "https://api.vellmar.ru/order_order_legal_post";
+        ? "https://api.vellmar.ru/order-natural"
+        : "https://api.vellmar.ru/order-legal";
 
     try {
       const response = await fetch(endpoint, {
