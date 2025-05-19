@@ -12,6 +12,7 @@ import Legal from "./pages/Legal";
 import Delivery from "./pages/Delivery";
 import Contacts from "./pages/Contacts";
 import About from "./pages/About";
+import SuccessPage from "./pages/SuccessPage";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/brands" element={<Brands />} />
         <Route path="/product/*" element={<ProductPage />} />
         <Route path="/search" element={<SearchResults />} />
+        <Route path="/success" element={<SuccessPage />} />
       </Routes>
     </BrowserRouter>
   );

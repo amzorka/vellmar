@@ -1,10 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../css/CheckoutForm.scss";
+import { CartContext } from "../contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
+  const navigate = useNavigate();
   const [orderType, setOrderType] = useState("individual");
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
+
+  const { cartItems, clearCart } = useContext(CartContext);
+
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  const products = cartItems.map((item) => ({
+    link: item.link,
+    name: item.name,
+    price: item.price,
+    count: item.quantity,
+  }));
 
   const requiredFields = {
     individual: ["name", "phone", "email", "address"],
@@ -16,7 +33,7 @@ const CheckoutForm = () => {
     setErrors((prev) => ({ ...prev, [field]: false }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const fields = requiredFields[orderType];
     const newErrors = {};
 
@@ -24,17 +41,79 @@ const CheckoutForm = () => {
       if (!formData[field]) {
         newErrors[field] = true;
       }
+
+      if (
+        field === "email" &&
+        formData[field] &&
+        !/\S+@\S+\.\S+/.test(formData[field])
+      ) {
+        newErrors[field] = true;
+      }
+
+      if (
+        field === "phone" &&
+        formData[field] &&
+        !/^\+?\d{10,15}$/.test(formData[field])
+      ) {
+        newErrors[field] = true;
+      }
     });
 
     setErrors(newErrors);
 
-    if (Object.keys(newErrors).length === 0) {
-      console.log("Данные отправлены:", formData);
+    if (Object.keys(newErrors).length > 0) return;
+
+    const body =
+      orderType === "individual"
+        ? {
+            name: formData.name,
+            phone: formData.phone,
+            email: formData.email,
+            city: formData.city,
+            address: formData.address,
+            total,
+            products,
+          }
+        : {
+            company_name: formData.companyName,
+            inn: formData.inn,
+            kpp: formData.kpp,
+            legal_address: formData.legalAddress,
+            contact_person: formData.contact,
+            phone: formData.phone,
+            email: formData.email,
+            address: formData.address,
+            total,
+            products,
+          };
+
+    const endpoint =
+      orderType === "individual"
+        ? "https://api.vellmar.ru/order_order_natural_post"
+        : "https://api.vellmar.ru/order_order_legal_post";
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) throw new Error("Ошибка при отправке");
+
+      const orderId = Date.now().toString().slice(-7); // примерный ID
+      clearCart?.(); // очистка корзины, если доступна
+
+      navigate("/success", { state: { orderNumber: orderId } });
+    } catch (err) {
+      console.error(err);
+      alert("Ошибка при отправке заявки");
     }
   };
 
-  const renderInput = (field, placeholder) => (
+  const renderInput = (field, placeholder, type = "text") => (
     <input
+      type={type}
       className={errors[field] ? "error" : ""}
       placeholder={placeholder}
       onChange={(e) => handleChange(field, e.target.value)}
@@ -104,7 +183,11 @@ const CheckoutForm = () => {
           </a>
           .
         </p>
-        <button className="checkout-submit" onClick={handleSubmit}>
+        <button
+          className="checkout-submit"
+          type="button"
+          onClick={handleSubmit}
+        >
           Оставить заявку
         </button>
       </div>

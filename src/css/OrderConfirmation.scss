@@ -1,0 +1,41 @@
+.order-confirmation {
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 150px;
+
+  .order-title {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .order-number {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 30px;
+  }
+
+  .order-message {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 50px;
+  }
+
+  .order-home-btn {
+    width: 370px;
+    height: 50px;
+    background-color: #e67549;
+    color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
