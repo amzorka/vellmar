@@ -47,6 +47,7 @@ export const CartProvider = ({ children }) => {
             selectedVariant: normalizedVariant,
             quantity,
             images: product.images,
+            link: product.link,
           },
         ];
       }
