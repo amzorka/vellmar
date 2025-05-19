@@ -20,7 +20,11 @@ const CheckoutForm = () => {
 
   const products = cartItems.map((item) => ({
     link: item.images?.[0]?.link || "",
-    name: item.title || item.name || "Неизвестный товар",
+    name: item.selectedVariant
+      ? `${item.title || item.name || "Неизвестный товар"} (${
+          item.selectedVariant
+        })`
+      : item.title || item.name || "Неизвестный товар",
     price: item.price,
     count: item.quantity,
   }));

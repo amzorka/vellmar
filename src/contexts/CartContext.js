@@ -84,9 +84,15 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  // --- Очистить корзину ---
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem("cart"); // если используешь localStorage
+  };
+
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, updateQuantity, removeItem }}
+      value={{ cartItems, addToCart, updateQuantity, removeItem, clearCart }}
     >
       {children}
     </CartContext.Provider>
