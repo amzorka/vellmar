@@ -35,3 +35,52 @@
   height: 1px;
   background-color: rgba(230, 117, 73, 0.5); // #E67549 с прозрачностью 50%
 }
+
+@media (max-width: 768px) {
+  .subcategories-block.mobile {
+    width: calc(100% - 40px);
+    margin: 30px auto 0 auto;
+  }
+
+  .subcategories-block.mobile .subcategories-list {
+    display: grid;
+    grid-template-columns: repeat(2, 166px);
+    gap: 15px 30px; // 15px между строками, 30px между карточками
+    justify-content: center;
+  }
+
+  .subcategories-block.mobile .subcategory-card {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    height: 28px; // полная высота карточки
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
+    text-align: left;
+
+    &:hover {
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-1px);
+    }
+  }
+
+  .subcategories-block.mobile .subcategory-divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(230, 117, 73, 0.5);
+  }
+}
+
+.subcategory-divider {
+  margin-top: 0;
+}

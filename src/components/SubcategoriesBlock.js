@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { CategoryTree } from "../constants/categoryTree";
 import "../css/SubcategoriesBlock.scss";
+import useIsMobile from "../hooks/useIsMobile";
 
 // --- Функция для поиска подкатегорий по текущим слагам ---
 const findSubcategories = (slugs, tree) => {
@@ -15,6 +16,7 @@ const findSubcategories = (slugs, tree) => {
 };
 
 const SubcategoriesBlock = () => {
+  const isMobile = useIsMobile();
   const { categorySlug, subCategorySlug, subSubCategorySlug } = useParams();
   const slugs = [categorySlug, subCategorySlug, subSubCategorySlug].filter(
     Boolean
@@ -24,10 +26,32 @@ const SubcategoriesBlock = () => {
 
   if (!subcategories.length) return null; // Если нет подкатегорий, не выводим блок
 
+  if (isMobile) {
+    return (
+      <div className="subcategories-block mobile">
+        <div className="subcategories-list">
+          {subcategories.map((subcategory) => {
+            const path = `/catalog/${[...slugs, subcategory.slug].join("/")}`;
+            return (
+              <Link
+                key={subcategory.slug}
+                to={path}
+                className="subcategory-card"
+              >
+                {subcategory.name}
+              </Link>
+            );
+          })}
+        </div>
+        <div className="subcategory-divider" />
+      </div>
+    );
+  }
+
+  // Десктопный вариант (оставь тут свой текущий JSX)
   return (
-    <div className="subcategories-block">
+    <div className="subcategories-block desktop">
       {subcategories.map((subcategory) => {
-        // Формируем путь для ссылки
         const path = `/catalog/${[...slugs, subcategory.slug].join("/")}`;
         return (
           <Link key={subcategory.slug} to={path} className="subcategory-card">

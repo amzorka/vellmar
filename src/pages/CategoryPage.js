@@ -10,6 +10,9 @@ import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import ModalRequest from "../components/ModalRequest";
 import PageLoader from "../components/PageLoader";
+import useIsMobile from "../hooks/useIsMobile";
+import MobileFooter from "../components/MobileFooter";
+import MobileHeader from "../components/MobileHeader";
 import "../css/CategoryPage.scss";
 
 // --- Функция для поиска названия категории ---
@@ -34,6 +37,7 @@ const findCategoryBySlugs = (slugs, tree = CategoryTree) => {
 const PRODUCTS_PER_PAGE = 20;
 
 const CategoryPage = () => {
+  const isMobile = useIsMobile();
   const { categorySlug, subCategorySlug, subSubCategorySlug } = useParams();
   const slugs = [categorySlug, subCategorySlug, subSubCategorySlug]
     .filter(Boolean)
@@ -174,18 +178,18 @@ const CategoryPage = () => {
   if (!path && !brand) {
     return (
       <div className="category-page">
-        <Header />
+        {isMobile ? <MobileHeader /> : <Header />}
         <Breadcrumbs />
         <h1 className="category-title">Каталог</h1>
         <SubcategoriesBlock />
-        <Footer />
+        {isMobile ? <MobileFooter /> : <Footer />}
       </div>
     );
   }
 
   return (
     <div className="category-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <h1 className="category-title">
         {categoryTitle || (brand ? `Товары бренда ${brand}` : "Категория")}
@@ -227,7 +231,7 @@ const CategoryPage = () => {
         />
       )}
 
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
       {modalProduct && (
         <ModalRequest product={modalProduct} onClose={closeModal} />
       )}
