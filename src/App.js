@@ -36,7 +36,7 @@ function App() {
           element={<CategoryPage />}
         />
         <Route
-          path="/catalog/:categorySlug/:subCategorySlug/:subSubCategorySlug:subSubCategorySlug"
+          path="/catalog/:categorySlug/:subCategorySlug/:subSubCategorySlug/:subSubCategorySlug"
           element={<CategoryPage />}
         />
         <Route path="/brands" element={<Brands />} />
