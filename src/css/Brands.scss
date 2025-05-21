@@ -29,9 +29,8 @@
   margin-bottom: 50px;
   h2 {
     font-family: "Inter";
-    font-style: 24px;
+    font-size: 24px;
     margin-bottom: 30px;
-    font-size: 20px;
     font-weight: 700;
   }
 }
@@ -62,5 +61,29 @@
   &:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 768px) {
+  .alphabet-nav {
+    max-width: calc(100% - 40px);
+    margin: 40px 20px;
+    letter-spacing: 30%;
+  }
+
+  .brand-card {
+    font-size: 16px;
+    height: 36px;
+    padding: 0 10px;
+  }
+  .brand-buttons {
+    gap: 20px;
+  }
+
+  .letter-group {
+    h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
   }
 }

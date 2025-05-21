@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-import PartnersSection from "../components/PartnersSection";
-import InfoBlocksSection from "../components/InfoBlocksSection";
+import MobileHeader from "../components/MobileHeader";
 import Footer from "../components/Footer";
+import MobileFooter from "../components/MobileFooter";
 import Breadcrumbs from "../components/Breadcrumbs";
 import PageLoader from "../components/PageLoader"; // ← добавили лоадер
+import useIsMobile from "../hooks/useIsMobile";
 import "../css/Brands.scss";
 
 function Brands() {
+  const isMobile = useIsMobile();
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true); // ← добавили состояние загрузки
 
@@ -39,7 +41,7 @@ function Brands() {
 
   return (
     <div className="brands-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
 
       <h1 className="category-title">Бренды</h1>
@@ -91,7 +93,7 @@ function Brands() {
           </div>
         </>
       )}
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 }
