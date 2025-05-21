@@ -249,3 +249,9 @@
     height: 62px;
   }
 }
+
+@media (max-width: 768px) {
+  .product-choose-button {
+    display: none;
+  }
+}
