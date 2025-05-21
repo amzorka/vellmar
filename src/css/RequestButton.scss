@@ -19,3 +19,9 @@
     background-color: darken(#e67549, 10%);
   }
 }
+
+@media (max-width: 768px) {
+  .request-button {
+    display: none;
+  }
+}
