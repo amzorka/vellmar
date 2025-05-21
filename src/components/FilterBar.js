@@ -12,23 +12,25 @@ const FilterBar = ({
   const [min, setMin] = useState(minPrice);
   const [max, setMax] = useState(maxPrice);
 
-  // Когда minPrice/maxPrice приходят снаружи, обновляем локальные стейты
+  // Обновляем при приходе новых пропсов
   useEffect(() => {
     setMin(minPrice);
     setMax(maxPrice);
-    onPriceChange(minPrice, maxPrice);
   }, [minPrice, maxPrice]);
+
+  // Вызываем обновление только когда min/max реально изменились
+  useEffect(() => {
+    onPriceChange(min, max);
+  }, [min, max]);
 
   const handleMinChange = (e) => {
     const value = Number(e.target.value) || 0;
-    setMin(value);
-    onPriceChange(value, max);
+    setMin(value); // просто обновляем стейт, а onPriceChange вызовется через useEffect
   };
 
   const handleMaxChange = (e) => {
     const value = Number(e.target.value) || 0;
     setMax(value);
-    onPriceChange(min, value);
   };
 
   return (
