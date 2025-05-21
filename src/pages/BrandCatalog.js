@@ -6,11 +6,16 @@ import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import ModalRequest from "../components/ModalRequest";
 import PageLoader from "../components/PageLoader";
+import useIsMobile from "../hooks/useIsMobile";
+import MobileHeader from "../components/MobileHeader";
+import MobileFooter from "../components/MobileFooter";
 import "../css/CategoryPage.scss";
 
 const PRODUCTS_PER_PAGE = 20;
 
 const BrandCatalog = () => {
+  const isMobile = useIsMobile();
+
   const [searchParams] = useSearchParams();
   const brand = searchParams.get("name");
 
@@ -54,7 +59,7 @@ const BrandCatalog = () => {
 
   return (
     <div className="category-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <h1 className="category-title">Товары бренда: {brand}</h1>
 
@@ -77,7 +82,7 @@ const BrandCatalog = () => {
         <ModalRequest product={modalProduct} onClose={closeModal} />
       )}
 
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 };
