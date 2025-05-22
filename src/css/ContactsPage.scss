@@ -72,3 +72,39 @@
   font-size: 14px;
   font-weight: 300;
 }
+
+@media (max-width: 768px) {
+  .contacts-title {
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+
+  .contacts-columns {
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contacts-column-left {
+    align-items: center;
+  }
+
+  .contacts-socials {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .contacts-info {
+    margin-bottom: 40px;
+  }
+
+  .contacts-subtitle {
+    margin-bottom: 30px;
+  }
+
+  .contacts-copyright {
+    font-size: 16px;
+  }
+}

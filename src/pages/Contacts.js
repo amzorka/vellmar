@@ -1,15 +1,20 @@
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import MobileHeader from "../components/MobileHeader";
+import MobileFooter from "../components/MobileFooter";
+import useIsMobile from "../hooks/useIsMobile";
 import React from "react";
 import "../css/ContactsPage.scss";
 import telegramIcon from "../images/telegram.png";
 import whatsappIcon from "../images/whatsapp.png";
 
 function Contacts() {
+  const isMobile = useIsMobile();
+
   return (
     <>
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <section className="contacts-page">
         <h1 className="contacts-title">Контакты</h1>
@@ -53,7 +58,7 @@ function Contacts() {
           </div>
         </div>
       </section>
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </>
   );
 }

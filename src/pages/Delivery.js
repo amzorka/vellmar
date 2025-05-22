@@ -1,20 +1,24 @@
 import Header from "../components/Header";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
-import PartnersSection from "../components/PartnersSection";
+import useIsMobile from "../hooks/useIsMobile";
+import MobileFooter from "../components/MobileFooter";
+import MobileHeader from "../components/MobileHeader";
 import "../css/Delivery.scss";
 
 function Delivery() {
+  const isMobile = useIsMobile();
+
   return (
     <>
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <h2 className="page-heading">ДОСТАВКА И РУЗГРУЗКА</h2>
       <section className="delivery-content">
-        <h3>
+        <h2>
           Мы заботимся о том, чтобы ваш заказ прибыл точно в срок и в полной
           сохранности
-        </h3>
+        </h2>
         <p>
           Наша служба доставки работает по будням — с понедельника по пятницу, с
           9:00 до 18:00.
@@ -23,7 +27,7 @@ function Delivery() {
           максимально <br /> удобно для вас.
         </p>
 
-        <h3>Условия и стоимость доставки</h3>
+        <h3>УСЛОВИЯ И СТОИМОСТЬ ДОСТАВКИ</h3>
         <p>
           Стоимость доставки рассчитывается индивидуально и зависит от веса и
           объема <br /> заказа.
@@ -49,7 +53,7 @@ function Delivery() {
           100 км от МКАД.
         </p>
 
-        <h3>Услуга подъема заказа на этаж</h3>
+        <h3>УСЛУГА ПОДЪЕМА ЗАКАЗА НА ЭТАЖ</h3>
         <p>
           Для вашего удобства мы предлагаем услугу подъема товаров на этаж.
           <br />
@@ -62,7 +66,7 @@ function Delivery() {
           </em>
         </p>
 
-        <h3>Мелкогабаритные заказы — до 30 кг</h3>
+        <h3>МЕЛКОГАБАРИТНЫЕ ЗАКАЗЫ — ДО 30 КГ</h3>
         <p>Подъем осуществляется курьером:</p>
         <ul>
           <li>- До 20 кг — подъем до квартиры бесплатно;</li>
@@ -75,7 +79,7 @@ function Delivery() {
           </li>
         </ul>
 
-        <h3>Крупногабаритные заказы — от 30 до 1000 кг</h3>
+        <h3>КРУПНОГАБАРИТНЫЕ ЗАКАЗЫ — ОТ 30 ДО 1000 КГ</h3>
         <p>Подъем осуществляется грузчиками:</p>
         <ul>
           <li>- Услуга доступна только в пределах МКАД;</li>
@@ -90,7 +94,7 @@ function Delivery() {
           </li>
         </ul>
 
-        <h3>- Заказы свыше 1000 кг</h3>
+        <h3>ЗАКАЗЫ СВЫШЕ 1000 КГ</h3>
         <p>
           Если вес заказа превышает 1000 кг, условия и стоимость подъема <br />
           согласовываются индивидуально с менеджером.
@@ -104,7 +108,7 @@ function Delivery() {
           расскажем.
         </p>
       </section>
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </>
   );
 }

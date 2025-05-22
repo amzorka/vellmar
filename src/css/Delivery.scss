@@ -4,7 +4,7 @@
   font-family: "Inter";
   line-height: 150%;
 
-  h3 {
+  h2 {
     font-weight: 600;
     font-size: 18px;
   }
@@ -20,5 +20,20 @@
   li {
     font-weight: 300;
     list-style: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .delivery-content {
+    max-width: calc(100% - 40px);
+    margin: 0 auto 50px auto;
+
+    h3 {
+      font-size: 15px;
+    }
+
+    p {
+      font-size: 15px;
+    }
   }
 }
