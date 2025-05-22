@@ -40,3 +40,18 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 768px) {
+  .order-confirmation {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  .order-message {
+    width: calc(100% - 40px);
+  }
+
+  .order-home-btn {
+    width: calc(100% - 40px);
+  }
+}
