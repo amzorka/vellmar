@@ -6,8 +6,12 @@ import "../css/CartPage.scss";
 import { CartContext } from "../contexts/CartContext";
 import PageLoader from "../components/PageLoader";
 import CheckoutForm from "../components/CheckoutForm";
+import useIsMobile from "../hooks/useIsMobile";
+import MobileHeader from "../components/MobileHeader";
+import MobileFooter from "../components/MobileFooter";
 
 const CartPage = () => {
+  const isMobile = useIsMobile();
   const { cartItems, updateQuantity, removeItem } = useContext(CartContext);
   const [loading, setLoading] = useState(true);
 
@@ -24,7 +28,7 @@ const CartPage = () => {
 
   return (
     <div className="cart-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <h1 className="cart-title">Ваша корзина</h1>
 
@@ -101,7 +105,8 @@ const CartPage = () => {
                   </td>
                 </tr>
               ))}
-              <tr className="cart-total-row">
+              {/* Десктопная версия */}
+              <tr className="cart-total-row desktop-only">
                 <td>Итого:</td>
                 <td></td>
                 <td className="total-quantity">{totalQuantity} шт.</td>
@@ -110,13 +115,26 @@ const CartPage = () => {
                   {totalPrice.toLocaleString("ru-RU")} ₽
                 </td>
               </tr>
+
+              {/* Мобильная версия */}
+              <tr className="cart-total-row-mobile mobile-only">
+                <td colSpan={3}>
+                  <div className="cart-total-grid">
+                    <span className="cart-total-label">Итого:</span>
+                    <span className="cart-total-qty">{totalQuantity} шт.</span>
+                    <span className="cart-total-sum">
+                      {totalPrice.toLocaleString("ru-RU")} ₽
+                    </span>
+                  </div>
+                </td>
+              </tr>
             </tbody>
           </table>
           <CheckoutForm />
         </>
       )}
 
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 };

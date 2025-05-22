@@ -10,7 +10,7 @@ const CartNotification = ({ onClose }) => {
     const timer = setTimeout(() => {
       setVisibleClass("hide");
       setTimeout(onClose, 500); // дождаться завершения анимации
-    }, 3000); // показывать 3 секунды
+    }, 3000000); // показывать 3 секунды
 
     return () => clearTimeout(timer); // очистка при размонтировании
   }, [onClose]);

@@ -125,3 +125,35 @@
 .form-column input.error::placeholder {
   color: red;
 }
+
+@media (max-width: 768px) {
+  .checkout-section {
+    width: calc(100% - 40px);
+  }
+
+  .checkout-type-switch {
+    width: 100%;
+    height: 50px;
+  }
+
+  .checkout-form {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-column {
+    gap: 20px;
+  }
+
+  .form-column input {
+    width: auto;
+  }
+
+  .checkout-note {
+    width: 100%;
+  }
+
+  .checkout-submit {
+    width: 100%;
+  }
+}

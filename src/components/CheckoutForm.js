@@ -2,8 +2,10 @@ import React, { useState, useContext } from "react";
 import "../css/CheckoutForm.scss";
 import { CartContext } from "../contexts/CartContext";
 import { useNavigate } from "react-router-dom";
+import useIsMobile from "../hooks/useIsMobile";
 
 const CheckoutForm = () => {
+  const isMobile = useIsMobile();
   const navigate = useNavigate();
   const [orderType, setOrderType] = useState("individual");
   const [formData, setFormData] = useState({});
