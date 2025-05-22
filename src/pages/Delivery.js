@@ -13,7 +13,7 @@ function Delivery() {
     <>
       {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
-      <h2 className="page-heading">ДОСТАВКА И РУЗГРУЗКА</h2>
+      <h2 className="page-heading">Доставка и разгрузка</h2>
       <section className="delivery-content">
         <h2>
           Мы заботимся о том, чтобы ваш заказ прибыл точно в срок и в полной
