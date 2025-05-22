@@ -133,7 +133,7 @@
 
   .checkout-type-switch {
     width: 100%;
-    height: 50px;
+    height: 45px;
   }
 
   .checkout-form {
@@ -155,5 +155,9 @@
 
   .checkout-submit {
     width: 100%;
+  }
+
+  .type-btn {
+    padding: 12px 20px;
   }
 }

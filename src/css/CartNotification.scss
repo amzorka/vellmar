@@ -73,3 +73,11 @@
     transform: translate(-50%, -50%) translateY(-40px);
   }
 }
+
+@media (max-width: 768px) {
+  .cart-notification {
+    font-size: 12px;
+    width: 290px;
+    padding: 21px 28px;
+  }
+}
