@@ -48,10 +48,10 @@
   }
 
   .order-message {
-    width: calc(100% - 40px);
+    width: calc(100% - 40px) !important;
   }
 
   .order-home-btn {
-    width: calc(100% - 40px);
+    width: calc(100% - 40px) !important;
   }
 }
