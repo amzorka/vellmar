@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useContext } from "react";
+import useIsMobile from "../hooks/useIsMobile";
+
 import { CartContext } from "../contexts/CartContext"; // сюда добавится
 import Header from "../components/Header";
+import MobileHeader from "../components/MobileHeader";
+
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
-import PartnersSection from "../components/PartnersSection";
+import MobileFooter from "../components/MobileFooter";
+
 import CartNotification from "../components/CartNotification";
 import ModalRequest from "../components/ModalRequest";
 import Pageloader from "../components/PageLoader";
 import "../css/ProductPage.scss";
 
 const ProductPage = () => {
+  const isMobile = useIsMobile();
+
   const location = useLocation();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -100,12 +107,12 @@ const ProductPage = () => {
 
   return (
     <div className="product-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs
         // product={product}
         categoryPathFromProduct={product.category}
       />
-      <div className="product-content">
+      <div className={`product-content ${isMobile ? "mobile-layout" : ""}`}>
         <div className="product-images-section">
           <div className="product-main-image">
             <img
@@ -226,7 +233,7 @@ const ProductPage = () => {
           )}
         </div>
       </div>
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 };
