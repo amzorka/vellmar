@@ -5,24 +5,39 @@ import aboutImage2 from "../images/about/2.jpg";
 import aboutImage3 from "../images/about/3.jpg";
 import aboutImage4 from "../images/about/4.jpg";
 import aboutImage5 from "../images/about/5.jpg";
+import aboutImageMob from "../images/about/1-mobile.jpg";
 
 import Breadcrumbs from "../components/Breadcrumbs";
 import PartnersSection from "../components/PartnersSection";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import useIsMobile from "../hooks/useIsMobile";
+import MobileFooter from "../components/MobileFooter";
+import MobileHeader from "../components/MobileHeader";
 
 function About() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="about-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <section className="about-section about-section-1">
         <h1 className="about-section-1__main-title">О НАС</h1>
-        <img
-          className="about-section-1__image"
-          src={aboutImage1}
-          alt="О компании Веллмар"
-        />
+        {isMobile ? (
+          <img
+            className="about-section-1__image"
+            src={aboutImageMob}
+            alt="О компании Веллмар"
+          />
+        ) : (
+          <img
+            className="about-section-1__image"
+            src={aboutImage1}
+            alt="О компании Веллмар"
+          />
+        )}
+
         <h2 className="about-section-1__subtitle">О компании Веллмар</h2>
         <p className="about-section-1__text">
           Веллмар — российская компания, специализирующаяся на комплексных
@@ -120,7 +135,7 @@ function About() {
         ></img>
       </div>
       <PartnersSection />
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 }

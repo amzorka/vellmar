@@ -1,18 +1,24 @@
 import Breadcrumbs from "../components/Breadcrumbs";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import PartnersSection from "../components/PartnersSection";
+import MobileHeader from "../components/MobileHeader";
+import MobileFooter from "../components/MobileFooter";
+import useIsMobile from "../hooks/useIsMobile";
 import "../css/Legal.scss";
 
 function Legal() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="legal-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <h2 className="page-heading">Правовая информация</h2>
       <div className="legal-content">
         <section>
+          <h2>Пользовательское соглашение</h2>
           <h3>1. Общие положения</h3>
+
           <p>
             1.1. Настоящее Пользовательское соглашение (далее — «Соглашение»)
             определяет порядок использования Сайта [указать домен] и регулирует
@@ -253,7 +259,7 @@ function Legal() {
           </p>
         </section>
       </div>
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 }
