@@ -304,7 +304,7 @@
 
   .product-main-image {
     width: 100%;
-    max-width: 360px;
+    max-width: calc(100% - 40px);
     height: auto;
 
     img {
@@ -313,9 +313,13 @@
     }
   }
 
+  .product-page-title {
+    font-size: 24px;
+  }
+
   .product-info-section {
     width: 100%;
-    max-width: 360px;
+    max-width: calc(100% - 40px);
     padding: 0 20px;
   }
 
@@ -334,20 +338,7 @@
   }
 
   .product-add-to-cart-button {
-    flex-direction: column;
     width: 100%;
-    height: auto;
-    gap: 10px;
-  }
-
-  .product-quantity-controls {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .product-add-to-cart {
-    width: 100%;
-    border-radius: 10px;
   }
 
   .product-request-button {
