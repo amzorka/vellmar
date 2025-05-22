@@ -156,3 +156,55 @@
   font-size: 20px;
   font-weight: 600;
 }
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: calc(100% - 40px);
+    padding: 20px;
+  }
+
+  .modal-body {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .modal-form {
+    width: 100%;
+  }
+
+  .modal-form input {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .privacy,
+  .submit-button {
+    width: 100%;
+  }
+
+  .modal-product {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid #767676;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .product-request-image {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .product-name {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  .product-request-price {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+}
