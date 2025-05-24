@@ -7,11 +7,15 @@ import ProductCard from "../components/ProductCard";
 import PageLoader from "../components/PageLoader";
 import ModalRequest from "../components/ModalRequest";
 import Pagination from "../components/Pagination";
+import useIsMobile from "../hooks/useIsMobile";
+import MobileFooter from "../components/MobileFooter";
+import MobileHeader from "../components/MobileHeader";
 import "../css/CategoryPage.scss";
 
 const PRODUCTS_PER_PAGE = 20;
 
 const SearchResults = () => {
+  const isMobile = useIsMobile();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const query = params.get("query") || "";
@@ -57,7 +61,7 @@ const SearchResults = () => {
 
   return (
     <div className="category-page">
-      <Header />
+      {isMobile ? <MobileHeader /> : <Header />}
       <Breadcrumbs />
       <h1 className="category-title">Результаты поиска: {query}</h1>
 
@@ -91,7 +95,7 @@ const SearchResults = () => {
         <ModalRequest product={modalProduct} onClose={closeModal} />
       )}
 
-      <Footer />
+      {isMobile ? <MobileFooter /> : <Footer />}
     </div>
   );
 };

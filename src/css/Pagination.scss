@@ -39,6 +39,7 @@
 }
 
 .page-number {
+  color: #000000 !important;
   width: 25px;
   height: 25px;
   background-color: #f3f3f3;
@@ -52,6 +53,7 @@
 }
 
 .page-number.active {
+  color: #000000 !important;
   background-color: #ddd;
   border: 1px solid #bbb;
 }
