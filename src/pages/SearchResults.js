@@ -52,7 +52,7 @@ const SearchResults = () => {
         setTotalPages(1);
       })
       .finally(() => setLoading(false));
-  }, [query, currentPage]);
+  }, [query, currentPage, offset]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
