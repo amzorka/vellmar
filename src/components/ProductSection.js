@@ -16,17 +16,17 @@ const CATEGORY_PATHS = {
 // --- Ссылки для кнопок "Перейти" ---
 const CATEGORY_LINKS = {
   "Смеси строительные": "/catalog/mixes",
-  "Лак и растворитель": "/catalog/paints/varnish-and-solvent",
+  "Лакокрасочные материалы": "/catalog/paints",
   Утеплители: "/catalog/isolation/insulation-materials",
-  Инструменты: "/catalog/instrument",
+  Гидроизоляция: "catalog/isolation/waterproofing",
 };
 
 const ProductSection = () => {
   const [productsByCategory, setProductsByCategory] = useState({
     "Смеси строительные": [],
-    "Лак и растворитель": [],
+    "Лакокрасочные материалы": [],
     Утеплители: [],
-    Инструменты: [],
+    Гидроизоляция: [],
   });
 
   useEffect(() => {
