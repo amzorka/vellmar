@@ -149,6 +149,14 @@ const CategoryPage = () => {
     setCurrentPage(1);
   };
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage, location.pathname]);
+
   if (!computedPath && !brand) {
     return (
       <div className="category-page">
