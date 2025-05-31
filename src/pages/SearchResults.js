@@ -55,8 +55,11 @@ const SearchResults = () => {
   }, [query, currentPage, offset]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
+    // скролл срабатывает каждый раз при рендере новых товаров
+    if (!loading) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [products]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -64,7 +67,6 @@ const SearchResults = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
