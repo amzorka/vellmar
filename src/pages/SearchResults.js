@@ -54,6 +54,14 @@ const SearchResults = () => {
       .finally(() => setLoading(false));
   }, [query, currentPage, offset]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [location.search]);
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
