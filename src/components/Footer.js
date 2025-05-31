@@ -11,15 +11,15 @@ import rs from "../images/rsLogo.png";
 const Footer = () => {
   const categories = [
     { name: "Смеси строительные", link: "/catalog/mixes" },
-    { name: "Металл", link: "/catalog/metal" },
     { name: "Общестрой", link: "/catalog/general" },
-    { name: "Лакокрасочные материалы", link: "/catalog/paints" },
-    { name: "Изоляция", link: "/catalog/isolation" },
-    { name: "Электротовары", link: "/catalog/electrogoods" },
     { name: "Инструмент", link: "/catalog/instrument" },
-    { name: "Инженерная техника", link: "/catalog/plumbing" },
-    { name: "Пиломатериалы", link: "/catalog/lumber" },
+    { name: "Лакокрасочные материалы", link: "/catalog/paints" },
     { name: "Отделочные материалы", link: "/catalog/finishing" },
+    { name: "Инженерная техника", link: "/catalog/plumbing" },
+    { name: "Электротовары", link: "/catalog/electrogoods" },
+    { name: "Изоляция", link: "/catalog/isolation" },
+    { name: "Пиломатериалы", link: "/catalog/lumber" },
+    { name: "Металл", link: "/catalog/metal" },
   ];
 
   const menuLinks = [

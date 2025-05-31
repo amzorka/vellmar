@@ -13,10 +13,12 @@ import Delivery from "./pages/Delivery";
 import Contacts from "./pages/Contacts";
 import About from "./pages/About";
 import SuccessPage from "./pages/SuccessPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<CartPage />} />
