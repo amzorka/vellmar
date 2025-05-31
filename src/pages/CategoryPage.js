@@ -140,8 +140,10 @@ const CategoryPage = () => {
   ]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage]);
+    if (!loading) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [currentPage, computedPath, loading]);
 
   const handlePageChange = (page) => setCurrentPage(page);
   const handlePriceChange = (min, max) => {
@@ -152,10 +154,6 @@ const CategoryPage = () => {
   useEffect(() => {
     setCurrentPage(1);
   }, [location.pathname]);
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [currentPage, location.pathname]);
 
   if (!computedPath && !brand) {
     return (
