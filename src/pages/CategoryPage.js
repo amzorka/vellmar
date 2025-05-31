@@ -139,6 +139,10 @@ const CategoryPage = () => {
     maxPriceLoaded,
   ]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
   const handlePageChange = (page) => setCurrentPage(page);
   const handlePriceChange = (min, max) => {
     setPriceRange({ min, max });
