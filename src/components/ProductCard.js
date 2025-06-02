@@ -16,6 +16,28 @@ const ProductCard = ({ product, openModal }) => {
     product.variants && Object.keys(product.variants).length > 0;
 
   const [showNotification, setShowNotification] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    if (!imageError && product.link) {
+      setImageError(true);
+
+      fetch("https://api.vellmar.ru/collect-product", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: product.link }), // или product.id если так нужно
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Ошибка перепарсинга");
+          }
+          console.log("Отправлен на перепарсинг:", product.link);
+        })
+        .catch((err) => {
+          console.error("Ошибка запроса на collect-product:", err);
+        });
+    }
+  };
 
   return (
     <div className="product-card">
@@ -24,6 +46,7 @@ const ProductCard = ({ product, openModal }) => {
           src={imageUrl}
           alt={product.title.replace(/;+$/, "")}
           className="product-image"
+          onError={handleImageError}
         />
         <h3 className="product-title">{product.title.replace(/;+$/, "")}</h3>
       </Link>
