@@ -27,7 +27,7 @@ const ProductCard = ({ product, openModal }) => {
       fetch("https://api.vellmar.ru/collect-product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: product.link }),
+        body: JSON.stringify({ id: product.id }),
       })
         .then((res) => {
           if (!res.ok) {
@@ -48,7 +48,28 @@ const ProductCard = ({ product, openModal }) => {
           src={imageUrl}
           alt={product.title.replace(/;+$/, "")}
           className="product-image"
-          onError={handleImageError}
+          onError={() => {
+            if (!imageError && product.id) {
+              setImageError(true);
+
+              fetch("https://api.vellmar.ru/collect-product", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ id: product.id }), // <-- вот здесь теперь всё правильно
+              })
+                .then((res) => {
+                  if (!res.ok) {
+                    throw new Error("Ошибка перепарсинга");
+                  }
+                  console.log("Перепарсинг инициирован для id", product.id);
+                })
+                .catch((err) => {
+                  console.error("Ошибка при перепарсинге:", err);
+                });
+            }
+          }}
         />
         <h3 className="product-title">{product.title.replace(/;+$/, "")}</h3>
       </Link>
