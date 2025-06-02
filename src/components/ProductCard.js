@@ -1,15 +1,14 @@
 import AddToCartButton from "./AddToCartButton";
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import RequestButton from "../components/RequestButton";
-import { useState } from "react";
 import CartNotification from "../components/CartNotification";
 
 const ProductCard = ({ product, openModal }) => {
   const sortedImages = (product.images || []).sort(
     (a, b) => a.order_number - b.order_number
   );
-  const imageUrl =
+  const baseImageUrl =
     sortedImages.length > 0 ? `https://famarket.ru${sortedImages[0].link}` : "";
 
   const hasVariants =
@@ -17,6 +16,7 @@ const ProductCard = ({ product, openModal }) => {
 
   const [showNotification, setShowNotification] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const imgRef = useRef(null); // 👈
 
   const handleImageError = () => {
     if (!imageError && product.link) {
@@ -35,6 +35,14 @@ const ProductCard = ({ product, openModal }) => {
         .then((res) => {
           if (!res.ok) throw new Error("Ошибка перепарсинга");
           console.log("✅ Перепарсинг успешно запущен");
+
+          // ⏳ Подождать 2 секунды и перезапустить загрузку изображения
+          setTimeout(() => {
+            if (imgRef.current) {
+              imgRef.current.src = `${baseImageUrl}?v=${Date.now()}`;
+              setImageError(false); // чтобы onError не блокировался
+            }
+          }, 2000);
         })
         .catch((err) => {
           console.error("❌ Ошибка запроса на collect-product:", err);
@@ -46,7 +54,8 @@ const ProductCard = ({ product, openModal }) => {
     <div className="product-card">
       <Link to={`/product${product.link}`}>
         <img
-          src={imageUrl}
+          ref={imgRef} // 👈
+          src={baseImageUrl}
           alt={product.title.replace(/;+$/, "")}
           className="product-image"
           onError={handleImageError}
