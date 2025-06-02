@@ -19,13 +19,10 @@ const ProductCard = ({ product, openModal }) => {
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
-    if (!imageError && product.id) {
+    if (!imageError && product.article_number) {
       setImageError(true);
 
-      const id =
-        typeof product.id === "string" && product.id.startsWith("/id/")
-          ? product.id.replace(/^\/id\//, "")
-          : product.id;
+      const id = product.article_number;
 
       console.log("🔄 Отправка на перепарсинг:", id);
 
