@@ -19,21 +19,24 @@ const ProductCard = ({ product, openModal }) => {
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
-    if (!imageError && product.link) {
+    if (!imageError && product.id) {
       setImageError(true);
 
-      console.log("🔄 Отправка на перепарсинг:", product.link); // ← отладка
+      const id =
+        typeof product.id === "string" && product.id.startsWith("/id/")
+          ? product.id.replace(/^\/id\//, "")
+          : product.id;
+
+      console.log("🔄 Отправка на перепарсинг:", id);
 
       fetch("https://api.vellmar.ru/collect-product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: product.id }),
+        body: JSON.stringify({ id }),
       })
         .then((res) => {
-          if (!res.ok) {
-            throw new Error("Ошибка перепарсинга");
-          }
-          console.log("✅ Перепарсинг запущен:", product.link);
+          if (!res.ok) throw new Error("Ошибка перепарсинга");
+          console.log("✅ Перепарсинг запущен для id:", id);
         })
         .catch((err) => {
           console.error("❌ Ошибка запроса на collect-product:", err);
@@ -48,28 +51,7 @@ const ProductCard = ({ product, openModal }) => {
           src={imageUrl}
           alt={product.title.replace(/;+$/, "")}
           className="product-image"
-          onError={() => {
-            if (!imageError && product.id) {
-              setImageError(true);
-
-              fetch("https://api.vellmar.ru/collect-product", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ id: product.id }), // <-- вот здесь теперь всё правильно
-              })
-                .then((res) => {
-                  if (!res.ok) {
-                    throw new Error("Ошибка перепарсинга");
-                  }
-                  console.log("Перепарсинг инициирован для id", product.id);
-                })
-                .catch((err) => {
-                  console.error("Ошибка при перепарсинге:", err);
-                });
-            }
-          }}
+          onError={handleImageError}
         />
         <h3 className="product-title">{product.title.replace(/;+$/, "")}</h3>
       </Link>
