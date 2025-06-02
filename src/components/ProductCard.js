@@ -24,18 +24,17 @@ const ProductCard = ({ product, openModal }) => {
 
       console.log("🔄 Отправка на перепарсинг по link:", product.link);
 
-      fetch("https://api.vellmar.ru/collect-product", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          link: product.link.startsWith("/id/")
-            ? product.link
-            : `/id${product.link}`, // гарантируем наличие /id/
-        }), // 👈 ключевой момент
-      })
+      fetch(
+        `https://api.vellmar.ru/collect-product?link=${encodeURIComponent(
+          product.link
+        )}`,
+        {
+          method: "POST",
+        }
+      )
         .then((res) => {
           if (!res.ok) throw new Error("Ошибка перепарсинга");
-          console.log("✅ Перепарсинг запущен для link:", product.link);
+          console.log("✅ Перепарсинг успешно запущен");
         })
         .catch((err) => {
           console.error("❌ Ошибка запроса на collect-product:", err);
