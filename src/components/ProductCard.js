@@ -19,21 +19,19 @@ const ProductCard = ({ product, openModal }) => {
   const [imageError, setImageError] = useState(false);
 
   const handleImageError = () => {
-    if (!imageError && product.article_number) {
+    if (!imageError && product.link) {
       setImageError(true);
 
-      const id = product.article_number;
-
-      console.log("🔄 Отправка на перепарсинг:", id);
+      console.log("🔄 Отправка на перепарсинг по link:", product.link);
 
       fetch("https://api.vellmar.ru/collect-product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id }),
+        body: JSON.stringify({ link: product.link }), // 👈 ключевой момент
       })
         .then((res) => {
           if (!res.ok) throw new Error("Ошибка перепарсинга");
-          console.log("✅ Перепарсинг запущен для id:", id);
+          console.log("✅ Перепарсинг запущен для link:", product.link);
         })
         .catch((err) => {
           console.error("❌ Ошибка запроса на collect-product:", err);
