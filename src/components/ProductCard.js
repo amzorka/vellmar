@@ -27,7 +27,11 @@ const ProductCard = ({ product, openModal }) => {
       fetch("https://api.vellmar.ru/collect-product", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ link: product.link }), // 👈 ключевой момент
+        body: JSON.stringify({
+          link: product.link.startsWith("/id/")
+            ? product.link
+            : `/id${product.link}`, // гарантируем наличие /id/
+        }), // 👈 ключевой момент
       })
         .then((res) => {
           if (!res.ok) throw new Error("Ошибка перепарсинга");
