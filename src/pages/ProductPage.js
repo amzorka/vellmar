@@ -126,11 +126,10 @@ const ProductPage = () => {
       <div className={`product-content ${isMobile ? "mobile-layout" : ""}`}>
         <div className="product-images-section">
           <div className="product-main-image">
-            src=
-            {sortedImages[activeImageIndex]?.link.startsWith("/UserFiles")
-              ? `https://famarket.ru${sortedImages[activeImageIndex].link}`
-              : sortedImages[activeImageIndex]?.link}
-            alt={product.title}
+            <img
+              src={`https://famarket.ru${sortedImages[activeImageIndex]?.link}`}
+              alt={product.title}
+            />
           </div>
         </div>
 
