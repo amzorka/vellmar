@@ -17,7 +17,7 @@ import Pageloader from "../components/PageLoader";
 import "../css/ProductPage.scss";
 
 import trashBagsImage from "../images/trash-bags.jpg";
-import vetoshImage from "../images/vetosh.jpg";
+import vetoshImage from "../images/vetosh.jpeg";
 
 const ProductPage = () => {
   const isMobile = useIsMobile();
