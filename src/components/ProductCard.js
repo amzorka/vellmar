@@ -10,7 +10,7 @@ const ProductCard = ({ product, openModal }) => {
     (a, b) => a.order_number - b.order_number
   );
 
-  const imageUrl =
+  let imageUrl =
     sortedImages.length > 0 ? `https://famarket.ru${sortedImages[0].link}` : "";
 
   if (product.link === "/id/meshki-dlya-musora-1746.html") {
