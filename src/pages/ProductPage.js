@@ -16,6 +16,9 @@ import ModalRequest from "../components/ModalRequest";
 import Pageloader from "../components/PageLoader";
 import "../css/ProductPage.scss";
 
+import trashBagsImage from "../images/trash-bags.jpg";
+import vetoshImage from "../images/vetosh.jpg";
+
 const ProductPage = () => {
   const isMobile = useIsMobile();
 
@@ -86,6 +89,14 @@ const ProductPage = () => {
   const sortedImages = (product.images || [])
     .slice() // чтобы не мутировать оригинал
     .sort((a, b) => a.order_number - b.order_number);
+
+  if (product.link === "/id/meshki-dlya-musora-1746.html") {
+    sortedImages.splice(0, 1, { link: trashBagsImage }); // заменяем первую картинку
+  }
+
+  if (product.link === "/id/vetosh-5111.html") {
+    sortedImages.splice(0, 1, { link: vetoshImage });
+  }
 
   const cleanDescription = (product.description || "").replace(
     /<\/?d\.name>/g,
