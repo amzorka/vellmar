@@ -7,17 +7,19 @@ import AddToCartButton from "../components/AddToCartButton";
 // --- Корректные пути категорий ---
 const CATEGORY_PATHS = {
   "Смеси строительные": "Главная -> Смеси строительные",
-  "Лакокрасочные материалы": "Главная -> Лакокрасочные материалы",
+  "Лакокрасочные материалы":
+    "Главная -> Лакокрасочные материалы -> Краска и эмаль",
   Утеплители: "Главная -> Изоляция -> Утеплители",
-  Гидроизоляция: "Главная -> Изоляция -> Гидроизоляция",
+  Гидроизоляция:
+    "Главная -> Изоляция -> Гидроизоляция -> Гидроизоляционные смеси",
 };
 
 // --- Ссылки для кнопок "Перейти" ---
 const CATEGORY_LINKS = {
   "Смеси строительные": "/catalog/mixes",
-  "Лакокрасочные материалы": "/catalog/paints",
+  "Лакокрасочные материалы": "/catalog/paints/paint-and-enamel",
   Утеплители: "/catalog/isolation/insulation-materials",
-  Гидроизоляция: "catalog/isolation/waterproofing",
+  Гидроизоляция: "catalog/isolation/waterproofing/waterproofing-compounds",
 };
 
 const ProductSection = () => {
