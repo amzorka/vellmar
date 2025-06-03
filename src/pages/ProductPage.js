@@ -129,9 +129,13 @@ const ProductPage = () => {
           <div className="product-main-image">
             <img
               src={
-                typeof product.category === "string" &&
-                product.category.includes("Обрезная доска")
-                  ? boardImage
+                product.link === "/id/meshki-dlya-musora-1746.html"
+                  ? trashBagsImage
+                  : product.link === "/id/vetosh-5111.html"
+                  ? vetoshImage
+                  : typeof product.category === "string" &&
+                    product.category.includes("Обрезная доска")
+                  ? boardImage // если добавляешь ещё и для доски
                   : `https://famarket.ru${sortedImages[activeImageIndex]?.link}`
               }
               alt={product.title}
