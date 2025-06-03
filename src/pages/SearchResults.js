@@ -22,6 +22,7 @@ const SearchResults = () => {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [imagesReady, setImagesReady] = useState(false); // ⬅️
   const [modalProduct, setModalProduct] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -55,10 +56,80 @@ const SearchResults = () => {
   }, [query, currentPage, offset]);
 
   useEffect(() => {
-    // скролл срабатывает каждый раз при рендере новых товаров
-    if (!loading) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    if (loading || !products.length) return;
+
+    let loadedCount = 0;
+    let isCancelled = false;
+
+    products.forEach((product) => {
+      const image = new Image();
+      const sortedImages = (product.images || []).sort(
+        (a, b) => a.order_number - b.order_number
+      );
+      const src =
+        sortedImages.length > 0
+          ? `https://famarket.ru${sortedImages[0].link}`
+          : null;
+
+      if (!src) {
+        loadedCount++;
+        return;
+      }
+
+      image.src = src;
+
+      image.onload = () => {
+        if (isCancelled) return;
+        loadedCount++;
+        if (loadedCount === products.length) {
+          setImagesReady(true);
+        }
+      };
+
+      image.onerror = () => {
+        if (isCancelled) return;
+        fetch(
+          `https://api.vellmar.ru/collect-product?link=${encodeURIComponent(
+            product.link
+          )}`,
+          { method: "POST" }
+        )
+          .then(() => {
+            setTimeout(() => {
+              if (isCancelled) return;
+              const retryImage = new Image();
+              retryImage.src = `${src}?v=${Date.now()}`;
+              retryImage.onload = () => {
+                if (isCancelled) return;
+                loadedCount++;
+                if (loadedCount === products.length) {
+                  setImagesReady(true);
+                }
+              };
+              retryImage.onerror = () => {
+                loadedCount++;
+                if (!isCancelled && loadedCount === products.length) {
+                  setImagesReady(true);
+                }
+              };
+            }, 3000);
+          })
+          .catch(() => {
+            loadedCount++;
+            if (!isCancelled && loadedCount === products.length) {
+              setImagesReady(true);
+            }
+          });
+      };
+    });
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [products, loading]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [products]);
 
   useEffect(() => {
@@ -75,7 +146,7 @@ const SearchResults = () => {
       <Breadcrumbs />
       <h1 className="category-title">Результаты поиска: {query}</h1>
 
-      {loading ? (
+      {loading || !imagesReady ? ( // ⬅️
         <PageLoader />
       ) : (
         <div className="products-section">
