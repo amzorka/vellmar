@@ -4,6 +4,7 @@ import AddToCartButton from "./AddToCartButton";
 import RequestButton from "../components/RequestButton";
 import CartNotification from "../components/CartNotification";
 import trashBagsImage from "../images/trash-bags.jpg";
+import vetoshImage from "../images/vetosh.jpeg";
 
 const ProductCard = ({ product, openModal }) => {
   const sortedImages = (product.images || []).sort(
@@ -15,6 +16,8 @@ const ProductCard = ({ product, openModal }) => {
 
   if (product.link === "/id/meshki-dlya-musora-1746.html") {
     imageUrl = trashBagsImage;
+  } else if (product.link === "/id/vetosh-5111.html") {
+    imageUrl = vetoshImage;
   }
 
   const hasVariants =
