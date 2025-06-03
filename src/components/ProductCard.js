@@ -5,8 +5,11 @@ import RequestButton from "../components/RequestButton";
 import CartNotification from "../components/CartNotification";
 import trashBagsImage from "../images/trash-bags.jpg";
 import vetoshImage from "../images/vetosh.jpeg";
+import boardImage from "../images/doska.png";
 
 const ProductCard = ({ product, openModal }) => {
+  const boardCategoryName = "Обрезная доска";
+
   const sortedImages = (product.images || []).sort(
     (a, b) => a.order_number - b.order_number
   );
@@ -18,6 +21,14 @@ const ProductCard = ({ product, openModal }) => {
     imageUrl = trashBagsImage;
   } else if (product.link === "/id/vetosh-5111.html") {
     imageUrl = vetoshImage;
+  }
+
+  if (
+    product.category &&
+    typeof product.category === "string" &&
+    product.category.includes(boardCategoryName)
+  ) {
+    imageUrl = boardImage;
   }
 
   const hasVariants =
