@@ -36,6 +36,7 @@ const findCategoryBySlugs = (slugs, tree = CategoryTree) => {
 const PRODUCTS_PER_PAGE = 20;
 
 const CategoryPage = () => {
+  const [imagesReady, setImagesReady] = useState(false);
   const isMobile = useIsMobile();
   const location = useLocation();
   const slugs = location.pathname
@@ -140,6 +141,70 @@ const CategoryPage = () => {
   ]);
 
   useEffect(() => {
+    if (loading || !allProducts.length) return;
+
+    let loadedCount = 0;
+
+    allProducts.forEach((product) => {
+      const image = new Image();
+      const sortedImages = (product.images || []).sort(
+        (a, b) => a.order_number - b.order_number
+      );
+      const src =
+        sortedImages.length > 0
+          ? `https://famarket.ru${sortedImages[0].link}`
+          : null;
+
+      if (!src) {
+        loadedCount++;
+        return;
+      }
+
+      image.src = src;
+
+      image.onload = () => {
+        loadedCount++;
+        if (loadedCount === allProducts.length) {
+          setImagesReady(true);
+        }
+      };
+
+      image.onerror = () => {
+        fetch(
+          `https://api.vellmar.ru/collect-product?link=${encodeURIComponent(
+            product.link
+          )}`,
+          { method: "POST" }
+        )
+          .then(() => {
+            setTimeout(() => {
+              const retryImage = new Image();
+              retryImage.src = `${src}?v=${Date.now()}`;
+              retryImage.onload = () => {
+                loadedCount++;
+                if (loadedCount === allProducts.length) {
+                  setImagesReady(true);
+                }
+              };
+              retryImage.onerror = () => {
+                loadedCount++;
+                if (loadedCount === allProducts.length) {
+                  setImagesReady(true);
+                }
+              };
+            }, 3000);
+          })
+          .catch(() => {
+            loadedCount++;
+            if (loadedCount === allProducts.length) {
+              setImagesReady(true);
+            }
+          });
+      };
+    });
+  }, [allProducts, loading]);
+
+  useEffect(() => {
     if (!loading) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -185,7 +250,7 @@ const CategoryPage = () => {
         onPriceChange={handlePriceChange}
       />
 
-      {loading ? (
+      {loading || !imagesReady ? (
         <PageLoader />
       ) : (
         <div className="products-section">
