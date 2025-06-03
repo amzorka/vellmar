@@ -91,14 +91,6 @@ const ProductPage = () => {
     .slice() // чтобы не мутировать оригинал
     .sort((a, b) => a.order_number - b.order_number);
 
-  if (product.link === "/id/meshki-dlya-musora-1746.html") {
-    sortedImages.splice(0, 1, { link: trashBagsImage }); // заменяем первую картинку
-  }
-
-  if (product.link === "/id/vetosh-5111.html") {
-    sortedImages.splice(0, 1, { link: vetoshImage });
-  }
-
   const cleanDescription = (product.description || "").replace(
     /<\/?d\.name>/g,
     ""
