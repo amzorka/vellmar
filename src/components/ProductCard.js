@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import AddToCartButton from "./AddToCartButton";
 import RequestButton from "../components/RequestButton";
 import CartNotification from "../components/CartNotification";
+import trashBagsImage from "../images/trash-bags.jpg";
 
 const ProductCard = ({ product, openModal }) => {
   const sortedImages = (product.images || []).sort(
@@ -11,6 +12,10 @@ const ProductCard = ({ product, openModal }) => {
 
   const imageUrl =
     sortedImages.length > 0 ? `https://famarket.ru${sortedImages[0].link}` : "";
+
+  if (product.link === "/id/meshki-dlya-musora-1746.html") {
+    imageUrl = trashBagsImage;
+  }
 
   const hasVariants =
     product.variants && Object.keys(product.variants).length > 0;
