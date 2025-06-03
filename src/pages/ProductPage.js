@@ -18,6 +18,7 @@ import "../css/ProductPage.scss";
 
 import trashBagsImage from "../images/trash-bags.jpg";
 import vetoshImage from "../images/vetosh.jpeg";
+import boardImage from "../images/doska.png"; // путь подставь свой
 
 const ProductPage = () => {
   const isMobile = useIsMobile();
@@ -127,7 +128,12 @@ const ProductPage = () => {
         <div className="product-images-section">
           <div className="product-main-image">
             <img
-              src={`https://famarket.ru${sortedImages[activeImageIndex]?.link}`}
+              src={
+                typeof product.category === "string" &&
+                product.category.includes("Обрезная доска")
+                  ? boardImage
+                  : `https://famarket.ru${sortedImages[activeImageIndex]?.link}`
+              }
               alt={product.title}
             />
           </div>
