@@ -64,7 +64,7 @@ const ProductCard = ({ product, openModal }) => {
 
       <p className="product-price">
         {product.price > 0
-          ? `${new Intl.NumberFormat("ru-RU", {
+          ? "Цена:"`${new Intl.NumberFormat("ru-RU", {
               style: "decimal",
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
