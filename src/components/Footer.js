@@ -79,7 +79,7 @@ const Footer = () => {
               <img src={telegram} className="footer__social-icon" />
             </a>
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/+79933367514"
               target="_blank"
               rel="noopener noreferrer"
             >

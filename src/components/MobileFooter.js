@@ -33,8 +33,20 @@ const MobileFooter = () => {
     <div className="mobile-footer">
       <img src={EmptyLogo} alt="logo" className="mobile-footer__logo" />
       <div className="mobile-footer__social">
-        <img src={telegram} />
-        <img src={whatsapp} />
+        <a
+          href="https://t.me/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={telegram} className="footer__social-icon" />
+        </a>
+        <a
+          href="https://wa.me/+79933367514"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={whatsapp} className="footer__social-icon" />
+        </a>
       </div>
       <div className="mobile-footer__contact">
         <img src={darkPhone} />
