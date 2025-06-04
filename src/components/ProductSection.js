@@ -34,14 +34,26 @@ const ProductSection = () => {
     const fetchProducts = async () => {
       const newProducts = {};
 
-      for (const [categoryName, fullPath] of Object.entries(CATEGORY_PATHS)) {
+      const categoryEntries = Object.entries(CATEGORY_PATHS);
+      const lastCategory = categoryEntries[categoryEntries.length - 1][0];
+
+      for (const [categoryName, fullPath] of categoryEntries) {
         try {
-          const response = await fetch(
-            `https://api.vellmar.ru/products?category=${encodeURIComponent(
-              fullPath
-            )}&limit=5&offset=0&order_by=price&ascending=false`
-          );
+          const isLast = categoryName === lastCategory;
+
+          const url = new URL("https://api.vellmar.ru/products");
+          url.searchParams.set("category", fullPath);
+          url.searchParams.set("limit", 5);
+          url.searchParams.set("offset", 0);
+
+          if (isLast) {
+            url.searchParams.set("order_by", "price");
+            url.searchParams.set("ascending", "false");
+          }
+
+          const response = await fetch(url.toString());
           const data = await response.json();
+
           newProducts[categoryName] = data.products || [];
         } catch (error) {
           console.error(
