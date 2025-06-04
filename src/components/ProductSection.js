@@ -39,7 +39,7 @@ const ProductSection = () => {
           const response = await fetch(
             `https://api.vellmar.ru/products?category=${encodeURIComponent(
               fullPath
-            )}&limit=5&offset=0`
+            )}&limit=5&offset=0&order_by=price&ascending=false`
           );
           const data = await response.json();
           newProducts[categoryName] = data.products || [];
