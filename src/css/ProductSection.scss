@@ -255,3 +255,26 @@
     display: none;
   }
 }
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  .section-title {
+    margin-left: 20px;
+  }
+
+  .products-grid {
+    margin-left: 20px;
+  }
+
+  .product-card {
+    width: auto;
+    padding: 0;
+  }
+
+  .product-title {
+    text-align: center;
+  }
+
+  .product-price {
+    margin-left: 10px;
+  }
+}

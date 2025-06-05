@@ -53,7 +53,7 @@
 
   &__contacts {
     display: flex;
-    align-items: end;
+    align-items: center;
 
     .contact-link {
       font-family: "Inter";
@@ -190,5 +190,23 @@
     height: 16px;
     top: 55px;
     right: 62px;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  .contact-link {
+    display: none;
+  }
+
+  .header__contacts {
+    margin-right: 20px;
+  }
+
+  .header__brands {
+    margin-left: 20px;
+  }
+
+  .nav-bar__content {
+    margin-left: 20px;
   }
 }

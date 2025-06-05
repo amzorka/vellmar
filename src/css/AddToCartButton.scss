@@ -83,3 +83,11 @@
     }
   }
 }
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  .add-to-cart-button {
+    width: calc(100% - 15px);
+    margin: 0 auto;
+    left: 3%;
+  }
+}

@@ -64,11 +64,18 @@ const Header = () => {
           >
             +7 (495) 532-99-75
           </a>
-          <img
-            src={phone}
-            alt="phone"
-            style={{ width: "20px", height: "20px", marginLeft: "15px" }}
-          />
+          <a href="tel:+74955329975">
+            <img
+              src={phone}
+              alt="phone"
+              style={{
+                width: "20px",
+                height: "20px",
+                marginLeft: "15px",
+                cursor: "pointer",
+              }}
+            />
+          </a>
           <a
             href="mailto:hello@vellmar.ru"
             className="contact-link"
@@ -76,11 +83,18 @@ const Header = () => {
           >
             hello@vellmar.ru
           </a>
-          <img
-            src={mail}
-            alt="mail"
-            style={{ width: "20px", height: "20px", marginLeft: "15px" }}
-          />
+          <a href="mailto:hello@vellmar.ru">
+            <img
+              src={mail}
+              alt="mail"
+              style={{
+                width: "20px",
+                height: "20px",
+                marginLeft: "15px",
+                cursor: "pointer",
+              }}
+            />
+          </a>
         </div>
       </header>
 

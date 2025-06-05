@@ -90,3 +90,13 @@
     }
   }
 }
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  .alphabet-nav {
+    width: calc(100vw - 40px);
+  }
+
+  .brands-list {
+    margin-left: 20px;
+  }
+}
