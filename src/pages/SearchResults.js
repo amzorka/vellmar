@@ -133,6 +133,12 @@ const SearchResults = () => {
   }, [products]);
 
   useEffect(() => {
+    if (!loading && products.length === 0) {
+      setImagesReady(true);
+    }
+  }, [loading, products]);
+
+  useEffect(() => {
     setCurrentPage(1);
   }, [location.search]);
 
