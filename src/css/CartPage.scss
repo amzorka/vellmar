@@ -309,3 +309,13 @@
     display: none !important;
   }
 }
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  .cart-title {
+    margin-left: 20px;
+  }
+
+  .cart-table {
+    width: calc(100vw - 40px);
+  }
+}
