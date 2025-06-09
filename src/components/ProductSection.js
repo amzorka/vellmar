@@ -46,10 +46,6 @@ const ProductSection = () => {
           if (categoryName === "Лакокрасочные материалы") {
             url.searchParams.set("order_by", "price");
             url.searchParams.set("ascending", "false");
-          } else {
-            // Для случайных товаров можно задать случайный offset (например, до 50)
-            const randomOffset = Math.floor(Math.random() * 50);
-            url.searchParams.set("offset", randomOffset);
           }
 
           const response = await fetch(url.toString());
