@@ -35,20 +35,21 @@ const ProductSection = () => {
       const newProducts = {};
 
       const categoryEntries = Object.entries(CATEGORY_PATHS);
-      const lastCategory = categoryEntries[categoryEntries.length - 1][0];
 
       for (const [categoryName, fullPath] of categoryEntries) {
         try {
-          const isLast = categoryName === lastCategory;
-
           const url = new URL("https://api.vellmar.ru/products");
           url.searchParams.set("category", fullPath);
           url.searchParams.set("limit", 5);
           url.searchParams.set("offset", 0);
 
-          if (isLast) {
+          if (categoryName === "Лакокрасочные материалы") {
             url.searchParams.set("order_by", "price");
             url.searchParams.set("ascending", "false");
+          } else {
+            // Для случайных товаров можно задать случайный offset (например, до 50)
+            const randomOffset = Math.floor(Math.random() * 50);
+            url.searchParams.set("offset", randomOffset);
           }
 
           const response = await fetch(url.toString());
