@@ -1,7 +1,6 @@
 import CategorySlider from "../components/CategorySlider";
 import Header from "../components/Header";
 import ProductSection from "../components/ProductSection";
-import banner from "../images/banner.png";
 import PartnersSection from "../components/PartnersSection";
 import InfoBlocksSection from "../components/InfoBlocksSection";
 import Footer from "../components/Footer";
@@ -12,6 +11,7 @@ import useIsMobile from "../hooks/useIsMobile";
 import MobileHeader from "../components/MobileHeader";
 import MobileInfoBlock from "../components/MobileInfoBlock";
 import MobileFooter from "../components/MobileFooter";
+import HomeBannerSlider from "../components/HomeBannerSlider";
 import "../css/Home.scss";
 
 function Home() {
@@ -31,7 +31,7 @@ function Home() {
         <PageLoader />
       ) : (
         <>
-          <img className="home-banner" alt="banner" src={banner}></img>
+          <HomeBannerSlider />
           <CategorySlider />
           <ProductSection />
           <h2 className="partners-title">Наши партнеры и поставщики</h2>

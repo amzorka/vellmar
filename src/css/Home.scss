@@ -1,18 +1,28 @@
-.home-banner {
+.home-banner-slider-wrapper {
+  overflow: hidden;
   margin: 50px auto 80px auto;
-  display: flex;
   max-width: 1280px;
-}
+  border-radius: 12px;
 
-@media (max-width: 767px) {
-  .home-banner {
+  @media (max-width: 767px) {
     width: calc(100vw - 40px);
     margin: 30px auto 50px auto;
   }
-}
 
-@media (min-width: 800px) and (max-width: 1280px) {
-  .home-banner {
+  @media (min-width: 800px) and (max-width: 1280px) {
     width: calc(100vw - 40px);
   }
+}
+
+.home-banner-slider {
+  display: flex;
+  width: 100%; // если 2 баннера, увеличивай по количеству
+  transition: transform 0.8s ease-in-out;
+}
+
+.home-banner-slide {
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
