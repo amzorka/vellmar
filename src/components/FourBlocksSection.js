@@ -2,8 +2,11 @@ import Icon1 from "../images/whyUsIcons/free-icon-handshake-3113031 1.png";
 import Icon2 from "../images/whyUsIcons/free-icon-box-3639291 1.png";
 import Icon3 from "../images/whyUsIcons/free-icon-experience-2303952 1.png";
 import RightImage from "../images/whyUsIcons/image 12.jpg";
+import useIsMobile from "../hooks/useIsMobile";
 
 function FourBlocksSection() {
+  const isMobile = useIsMobile();
+
   return (
     <div className="cards-and-image-wrapper">
       <div className="info-left">
@@ -40,23 +43,41 @@ function FourBlocksSection() {
           </div>
         </div>
 
-        <div className="info-card large card-3">
-          <div className="icon-and-text">
-            <img
-              src={Icon3}
-              alt="Icon 3"
-              className="why-us-icon"
-              style={{ marginTop: "20px" }}
-            />
-            <div className="text-content">
-              <h3 className="big-card-title">БОЛЕЕ 5 ЛЕТ УСПЕШНОЙ РАБОТЫ</h3>
-              <p className="big-card-text">
-                С 2020 года обеспечиваем бесперебойные поставки строительных
-                материалов для частных и коммерческих проектов.
-              </p>
+        {isMobile ? (
+          <div className="info-card small card-2">
+            <div className="icon-and-title">
+              <img
+                src={Icon3}
+                alt="Icon 3"
+                className="why-us-icon"
+                style={{ marginBottom: "10px" }}
+              />
+              <h3 className="small-card-title">БОЛЕЕ 5 ЛЕТ УСПЕШНОЙ РАБОТЫ</h3>
+            </div>
+            <p className="card-text">
+              С 2020 года обеспечиваем бесперебойные поставки строительных
+              материалов для частных и коммерческих проектов.
+            </p>
+          </div>
+        ) : (
+          <div className="info-card large card-3">
+            <div className="icon-and-text">
+              <img
+                src={Icon3}
+                alt="Icon 3"
+                className="why-us-icon"
+                style={{ marginTop: "20px" }}
+              />
+              <div className="text-content">
+                <h3 className="big-card-title">БОЛЕЕ 5 ЛЕТ УСПЕШНОЙ РАБОТЫ</h3>
+                <p className="big-card-text">
+                  С 2020 года обеспечиваем бесперебойные поставки строительных
+                  материалов для частных и коммерческих проектов.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="info-right">
