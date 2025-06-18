@@ -235,7 +235,7 @@ const ProductPage = () => {
             )}
           </div>
 
-          {cleanDescription && (
+          {cleanDescription && !/фамаркет/i.test(cleanDescription) && (
             <div
               className="product-page-description"
               style={{ marginTop: "40px" }}
